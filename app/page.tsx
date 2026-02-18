@@ -29,10 +29,11 @@ export default function Home() {
           {/* Description */}
           <div className="mb-12 text-[#2d2d2d]/70">
             <p className="text-sm leading-relaxed">
-              Architect of national foodservice growth for emerging plant-based brands. Led strategic
-              expansion for Daring and Violife across QSR chains, K-12 programs, and hospitality operators.
-              Specialized in distribution architecture, commercial systems, and operator adoption—transforming
-              regional products into mainstream foodservice staples.
+              Architect of national foodservice growth for plant-based brands. Led strategic expansion
+              for Dr. Praeger's, Daring, and Violife across QSR chains, K-12 programs, and hospitality
+              operators. Scaled Dr. Praeger's from $6M to $20M. Specialized in distribution architecture,
+              commercial systems, and operator adoption—transforming regional products into mainstream
+              foodservice staples.
             </p>
           </div>
 
