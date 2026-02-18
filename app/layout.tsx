@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dimitrios Pantzos | Foodservice Executive & Entrepreneur",
-  description: "Foodservice executive with a proven record of driving rapid sales growth and modernizing legacy brands.",
+  title: "Dimitrios Pantzos | Operator. Revenue Builder. AI Implementer.",
+  description: "I build and scale modern food, retail, and hospitality organizations using AI, systems, and real-world operations.",
 };
 
 export default function RootLayout({

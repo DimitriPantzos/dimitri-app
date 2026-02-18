@@ -1,70 +1,67 @@
 "use client";
 
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, Cpu, TrendingUp, Store } from "lucide-react";
 
 export default function Home() {
-  const experiences = [
+  const services = [
     {
-      title: "Director of Business Development – Food Service",
-      company: "Dr. Praeger's Sensible Foods",
-      location: "Elmwood Park, NJ",
-      period: "03/24 - Present",
-      highlights: [
-        "Spearheaded sales growth from $6M to $20M in foodservice, transforming a 30-year legacy brand into a modern growth engine",
-        "Built national presence across Quick Service Restaurants (QSRs), securing partnerships with White Castle, Café Nero",
-        "Expanded K-12 and military channels, navigating USDA bid cycles, CN labeling, and compliance",
-        "Designed and executed SKU rationalization strategy, streamlining portfolio to focus on high-margin, scalable items",
-        "Launched Framework 2.0, integrating demand planning, broker management, and customer segmentation"
+      icon: Cpu,
+      title: "AI Implementation for Real Businesses",
+      description: "I help organizations move from \"talking about AI\" to actually using it.",
+      points: [
+        "Integrate AI into daily workflows",
+        "Build internal GPT tools and automation systems",
+        "Streamline reporting, forecasting, and marketing",
+        "Train teams to adopt AI responsibly and effectively"
       ]
     },
     {
-      title: "National Sales Manager",
-      company: "Daring",
-      location: "Culver City, CA",
-      period: "04/22 - 03/24",
-      highlights: [
-        "Focused on enhancing existing accounts and optimizing previously non-profitable deals",
-        "Initiated Daring's successful entry into the K-12 educational sector via strategic partnership",
-        "QSR launches with Juice Press, &Pizza, Amy's Drive Thru, St. Hubert",
-        "Distributor Growth by over 100%",
-        "Implemented innovative outreach tools, enabling connections with thousands of potential customers"
+      icon: TrendingUp,
+      title: "Revenue & Sales Growth",
+      description: "I design and execute strategies that drive measurable growth.",
+      points: [
+        "Foodservice and retail expansion",
+        "National account strategy",
+        "Distribution and commercialization",
+        "Go-to-market planning"
       ]
     },
     {
-      title: "Experiential Marketing Manager → National Chain Manager",
-      company: "Upfield (Violife)",
-      location: "Hackensack, NJ",
-      period: "12/20 - 04/22",
-      highlights: [
-        "Developed and executed strategic marketing plans for the entire Violife Brand",
-        "Led North East Sales with total volume of 1.3 million in less than 1 year, surpassing quota",
-        "Designed & launched Violife food truck with implemented marketing strategy for US hotspots",
-        "Led brand discovery initiatives across US channel"
-      ]
-    },
-    {
-      title: "CO-Founder",
-      company: "Organika Kitchen",
-      location: "Southport, CT",
-      period: "08/16 - 07/20",
-      highlights: [
-        "Directed all daily operations for multi-unit Vegan quick service restaurants staffing 60+ employees",
-        "Expanded brand to three active locations in three years, exceeding $3M in annual revenue",
-        "Awards: Best of Fairfield County 2019-2020, Best of Westport 2017-2020, Best Juice Bar 2016-2020",
-        "First Uber Eats partner in CT, First Postmates partner in CT, increased revenue by 20%"
-      ]
-    },
-    {
-      title: "Cloud Operations Engineer",
-      company: "Datto Inc.",
-      location: "Norwalk, CT",
-      period: "04/14 - 08/16",
-      highlights: [
-        "Maintained and administered over a thousand storage nodes running ubuntu linux with ZFS",
-        "Subject matter expert regarding virtualization of systems in pure linux environment",
-        "24/7 disaster recovery response responsibilities"
+      icon: Store,
+      title: "Hospitality & Brand Operations",
+      description: "I build concepts that are profitable, scalable, and operationally sound.",
+      points: [
+        "Concept development and openings",
+        "Menu engineering and cost control",
+        "Financial modeling and systems",
+        "Multi-unit operational strategy"
       ]
     }
+  ];
+
+  const experience = [
+    "Director of Business Development — Dr. Praeger's",
+    "Founder — Lyfe Café",
+    "Founder — Pizza Lyfe",
+    "Led national foodservice growth and distribution strategy",
+    "Developed new product pipelines and commercialization plans",
+    "Opened and scaled profitable hospitality concepts",
+    "Implemented AI into daily operations across teams and brands"
+  ];
+
+  const howIWork = [
+    "Advisory and consulting",
+    "Fractional leadership roles",
+    "Project-based builds",
+    "Launch and growth strategy"
+  ];
+
+  const whoIWorkWith = [
+    "Food and beverage brands",
+    "Restaurant and hospitality groups",
+    "Founders and operators",
+    "Investors and private equity teams",
+    "Companies looking to implement AI into real operations"
   ];
 
   return (
@@ -75,108 +72,49 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             Dimitrios Pantzos
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Foodservice Executive & Entrepreneur
+          <p className="text-2xl md:text-3xl text-zinc-300 mb-8 font-light">
+            Operator. Revenue builder. AI implementer.
+          </p>
+          <p className="text-lg md:text-xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            I build and scale modern food, retail, and hospitality organizations using AI, systems, and real-world operations.
           </p>
           <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Proven record of driving rapid sales growth and modernizing legacy brands. Expert in building distribution,
-            managing national frameworks, and scaling business across QSR, K-12, military, and institutional channels.
+            After leading national foodservice growth at Dr. Praeger's and launching multiple hospitality concepts in Connecticut,
+            I now partner with founders, brands, and operators who want execution — not theory.
+          </p>
+          <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            My work sits at the intersection of AI implementation, revenue strategy, and operational discipline.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a
               href="mailto:me@dimitri.app"
-              className="flex items-center gap-2 px-6 py-3 bg-white text-black rounded-lg hover:bg-zinc-200 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-white text-black rounded-lg hover:bg-zinc-200 transition-colors font-medium"
             >
               <Mail size={20} />
-              <span>Email Me</span>
-            </a>
-            <a
-              href="tel:203-551-1003"
-              className="flex items-center gap-2 px-6 py-3 border border-zinc-700 text-white rounded-lg hover:bg-zinc-800 transition-colors"
-            >
-              <Phone size={20} />
-              <span>Call</span>
+              <span>Get in Touch</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* What I Do Section */}
       <section className="py-24 px-6 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">About</h2>
-          <div className="space-y-6 text-zinc-300 text-lg leading-relaxed">
-            <p>
-              I'm a foodservice executive with entrepreneurial and corporate experience combined with data-driven leadership,
-              P&L ownership, and a passion for building healthier, financially strong businesses.
-            </p>
-            <p>
-              My expertise spans launching innovative go-to-market strategies, streamlining product portfolios, and leveraging
-              broker and distributor networks to unlock new growth across QSR, K-12, military, and institutional channels.
-            </p>
-            <p>
-              From co-founding award-winning restaurants to driving $6M to $20M sales growth at legacy brands, I bring a unique
-              blend of operational excellence, strategic thinking, and hands-on execution.
-            </p>
-          </div>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-white text-center">What I Do</h2>
 
-          <div className="mt-12 pt-12 border-t border-zinc-800">
-            <div className="flex flex-wrap gap-8 text-zinc-400">
-              <div className="flex items-start gap-2">
-                <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <div>
-                  <div className="font-medium text-white">Location</div>
-                  <div>Norwalk, CT 06850</div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {services.map((service, index) => (
+              <div key={index} className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <service.icon size={32} className="text-white" />
+                  <h3 className="text-xl font-bold text-white">{service.title}</h3>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <Mail size={20} className="mt-1 flex-shrink-0" />
-                <div>
-                  <div className="font-medium text-white">Email</div>
-                  <a href="mailto:me@dimitri.app" className="hover:text-white transition-colors">
-                    me@dimitri.app
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <Phone size={20} className="mt-1 flex-shrink-0" />
-                <div>
-                  <div className="font-medium text-white">Phone</div>
-                  <a href="tel:203-551-1003" className="hover:text-white transition-colors">
-                    203-551-1003
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="py-24 px-6 bg-zinc-950">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-white">Experience</h2>
-
-          <div className="space-y-16">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-8 border-l-2 border-zinc-800">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white"></div>
-
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
-                  <div className="text-lg text-zinc-400 mb-1">{exp.company}</div>
-                  <div className="flex flex-wrap gap-4 text-sm text-zinc-500">
-                    <span>{exp.location}</span>
-                    <span>•</span>
-                    <span>{exp.period}</span>
-                  </div>
-                </div>
-
-                <ul className="space-y-3 text-zinc-300">
-                  {exp.highlights.map((highlight, idx) => (
-                    <li key={idx} className="flex gap-3">
-                      <span className="text-zinc-600 mt-1.5">•</span>
-                      <span>{highlight}</span>
+                <p className="text-zinc-400 leading-relaxed">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.points.map((point, idx) => (
+                    <li key={idx} className="flex gap-3 text-zinc-400">
+                      <span className="text-zinc-600">•</span>
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -186,13 +124,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Selected Experience Section */}
+      <section className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">Selected Experience</h2>
+          <ul className="space-y-4">
+            {experience.map((item, index) => (
+              <li key={index} className="flex gap-3 text-lg text-zinc-300">
+                <span className="text-zinc-600">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* How I Work Section */}
+      <section className="py-24 px-6 bg-black">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">How I Work</h2>
+          <p className="text-xl text-zinc-300 mb-8 font-medium">I'm not an agency.</p>
+          <p className="text-xl text-zinc-300 mb-12">I'm an operator you bring in when you want results.</p>
+          <p className="text-lg text-zinc-400 mb-8">I partner with organizations through:</p>
+          <ul className="space-y-4 mb-12">
+            {howIWork.map((item, index) => (
+              <li key={index} className="flex gap-3 text-lg text-zinc-300">
+                <span className="text-zinc-600">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-lg text-zinc-400 leading-relaxed">
+            Every engagement is focused on execution, clarity, and measurable outcomes.
+          </p>
+        </div>
+      </section>
+
+      {/* Who I Work With Section */}
+      <section className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">Who I Work With</h2>
+          <ul className="space-y-4">
+            {whoIWorkWith.map((item, index) => (
+              <li key={index} className="flex gap-3 text-lg text-zinc-300">
+                <span className="text-zinc-600">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-24 px-6 bg-black">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">Let's Connect</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">Let's Work Together</h2>
           <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto">
-            Interested in discussing foodservice strategy, business development, or new opportunities?
-            I'd love to hear from you.
+            Ready to scale, implement AI, or build something new? Let's talk.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
