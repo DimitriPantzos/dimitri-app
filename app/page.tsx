@@ -29,10 +29,10 @@ export default function Home() {
           {/* Description */}
           <div className="mb-12 text-[#2d2d2d]/70">
             <p className="text-sm leading-relaxed">
-              Led foodservice and strategic growth for plant-based brands including Daring and Violife,
-              expanding national accounts, distribution, and operator adoption across chains, K-12, and
-              hospitality. Drove commercialization, sales systems, and go-to-market execution to scale
-              emerging brands into mainstream foodservice.
+              Architect of national foodservice growth for emerging plant-based brands. Led strategic
+              expansion for Daring and Violife across QSR chains, K-12 programs, and hospitality operators.
+              Specialized in distribution architecture, commercial systems, and operator adoption—transforming
+              regional products into mainstream foodservice staples.
             </p>
           </div>
 
