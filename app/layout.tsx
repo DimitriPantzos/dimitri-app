@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dimitrios Pantzos | Operator. Revenue Builder. AI Implementer.",
-  description: "I build and scale modern food, retail, and hospitality organizations using AI, systems, and real-world operations.",
+  title: "Dimitrios Pantzos | President, Lyfe Hospitality",
+  description: "Building the future of hospitality through AI, systems thinking, and relentless execution. Owner of Lyfe Café and Pizza Lyfe. From $6M to $20M in foodservice growth.",
 };
 
 export default function RootLayout({
