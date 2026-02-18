@@ -17,22 +17,13 @@ export default function Home() {
             <p>Owner of Lyfe Café and Pizza Lyfe in Connecticut</p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="mailto:me@dimitri.app"
-              className="flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-zinc-200 transition-colors"
-            >
-              <Mail size={20} />
-              me@dimitri.app
-            </a>
-            <a
-              href="tel:203-551-1003"
-              className="flex items-center gap-2 px-6 py-3 border border-zinc-800 hover:bg-zinc-900 transition-colors"
-            >
-              <Phone size={20} />
-              203-551-1003
-            </a>
-          </div>
+          <a
+            href="mailto:me@dimitri.app"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-zinc-200 transition-colors"
+          >
+            <Mail size={20} />
+            me@dimitri.app
+          </a>
         </div>
       </section>
 
