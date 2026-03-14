@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { Mail } from "lucide-react";
 
 const companies = [
   { name: "Pizza Lyfe", href: "https://pizzalyfe.com" },
@@ -10,74 +12,85 @@ const companies = [
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="flex justify-between items-center px-6 md:px-10 py-6">
-        <div className="font-semibold text-lg tracking-tight">DP</div>
-        <nav className="flex gap-6 md:gap-8">
-          <Link href="/portfolio" className="text-sm opacity-70 hover:opacity-100 transition-opacity">
-            Portfolio
-          </Link>
-          <Link href="/about" className="text-sm opacity-70 hover:opacity-100 transition-opacity">
-            About
-          </Link>
-        </nav>
-      </header>
+      {/* Main content */}
+      <main className="flex-1 flex items-center justify-center px-6 py-12">
+        <div className="max-w-2xl w-full">
+          {/* Top label */}
+          <div className="pb-6 mb-8 border-b border-[#1a1a1a]/20">
+            <p className="text-xs uppercase tracking-wider opacity-50">
+              Connecticut / United States
+            </p>
+          </div>
 
-      {/* Main */}
-      <main className="flex-1 flex flex-col justify-center items-center px-6 text-center">
-        <p className="text-2xl md:text-4xl font-medium leading-snug tracking-tight max-w-2xl mb-16">
-          Building health-focused hospitality<br className="hidden md:block" /> concepts across Connecticut.
-        </p>
+          {/* Name */}
+          <h1 className="text-4xl md:text-5xl font-light mb-2 tracking-tight uppercase">
+            Dimitrios Pantzos
+          </h1>
 
-        {/* Carousel */}
-        <div className="w-full max-w-4xl overflow-hidden">
-          <div className="carousel-track flex">
-            {/* First set */}
-            {companies.map((company, i) => (
-              <div key={`a-${i}`} className="flex-shrink-0 px-6 md:px-10">
-                <a
-                  href={company.href}
-                  target={company.href !== "#" ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="text-lg md:text-xl font-medium opacity-60 hover:opacity-100 transition-opacity whitespace-nowrap"
-                >
-                  {company.name}
-                </a>
-                <span className="ml-6 md:ml-10 opacity-30">·</span>
-              </div>
-            ))}
-            {/* Duplicate for seamless loop */}
-            {companies.map((company, i) => (
-              <div key={`b-${i}`} className="flex-shrink-0 px-6 md:px-10">
-                <a
-                  href={company.href}
-                  target={company.href !== "#" ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="text-lg md:text-xl font-medium opacity-60 hover:opacity-100 transition-opacity whitespace-nowrap"
-                >
-                  {company.name}
-                </a>
-                <span className="ml-6 md:ml-10 opacity-30">·</span>
-              </div>
-            ))}
+          {/* Title */}
+          <div className="mb-8 space-y-2 opacity-70">
+            <p className="text-sm uppercase tracking-wider">President, Lyfe Hospitality</p>
+            <p className="text-sm">Owner of Lyfe Café and Pizza Lyfe</p>
+          </div>
+
+          {/* Description */}
+          <div className="mb-12 opacity-60">
+            <p className="text-sm leading-relaxed">
+              Architect of national foodservice growth for plant-based brands. Led strategic expansion
+              for Dr. Praeger's, Daring, and Violife across QSR chains, K-12 programs, and hospitality
+              operators. Specialized in distribution architecture, commercial systems, and operator
+              adoption—transforming regional products into mainstream foodservice staples.
+            </p>
+          </div>
+
+          {/* Contact */}
+          <div className="border-t border-[#1a1a1a]/20 pt-8">
+            <a
+              href="mailto:me@dimitri.app"
+              className="inline-flex items-center gap-3 text-sm uppercase tracking-wider hover:opacity-60 transition-opacity group"
+            >
+              <Mail size={16} className="group-hover:translate-x-1 transition-transform" />
+              <span className="border-b border-current">
+                me@dimitri.app
+              </span>
+            </a>
           </div>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="flex justify-between items-center px-6 md:px-10 py-6">
-        <a href="mailto:me@dimitri.app" className="text-sm opacity-50 hover:opacity-100 transition-opacity">
-          Contact
-        </a>
-        <div className="flex gap-6">
-          <a href="https://twitter.com/Dimitri_oss" target="_blank" rel="noopener noreferrer" className="text-sm opacity-50 hover:opacity-100 transition-opacity">
-            Twitter
-          </a>
-          <a href="https://linkedin.com/in/dimitripantzos" target="_blank" rel="noopener noreferrer" className="text-sm opacity-50 hover:opacity-100 transition-opacity">
-            LinkedIn
-          </a>
+      {/* Carousel */}
+      <div className="w-full overflow-hidden py-8 border-t border-[#1a1a1a]/10">
+        <div className="carousel-track flex">
+          {/* First set */}
+          {companies.map((company, i) => (
+            <div key={`a-${i}`} className="flex-shrink-0 px-6 md:px-10">
+              <a
+                href={company.href}
+                target={company.href !== "#" ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="text-lg font-medium opacity-50 hover:opacity-100 transition-opacity whitespace-nowrap"
+              >
+                {company.name}
+              </a>
+              <span className="ml-6 md:ml-10 opacity-20">·</span>
+            </div>
+          ))}
+          {/* Duplicate for seamless loop */}
+          {companies.map((company, i) => (
+            <div key={`b-${i}`} className="flex-shrink-0 px-6 md:px-10">
+              <a
+                href={company.href}
+                target={company.href !== "#" ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="text-lg font-medium opacity-50 hover:opacity-100 transition-opacity whitespace-nowrap"
+              >
+                {company.name}
+              </a>
+              <span className="ml-6 md:ml-10 opacity-20">·</span>
+            </div>
+          ))}
         </div>
-      </footer>
+      </div>
     </div>
   );
 }
