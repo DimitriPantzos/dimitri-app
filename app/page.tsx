@@ -2,7 +2,7 @@
 
 import { Mail } from "lucide-react";
 
-const companies = [
+const brands = [
   { name: "Pizza Lyfe", href: "https://pizzalyfe.com" },
   { name: "Lyfe Cafe", href: "#" },
   { name: "Organika Kitchen", href: "#" },
@@ -11,30 +11,30 @@ const companies = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Main content */}
-      <main className="flex-1 flex items-center justify-center px-6 py-12">
-        <div className="max-w-2xl w-full">
+    <main className="min-h-screen flex flex-col items-center justify-center px-6">
+      <div className="max-w-2xl w-full">
+        {/* Label-style container */}
+        <div className="border-2 border-[#2d2d2d] p-12 md:p-16 bg-[#f5f1e8]">
           {/* Top label */}
-          <div className="pb-6 mb-8 border-b border-[#1a1a1a]/20">
-            <p className="text-xs uppercase tracking-wider opacity-50">
+          <div className="border-b border-[#2d2d2d] pb-6 mb-8">
+            <p className="text-xs uppercase tracking-wider text-[#2d2d2d]/60">
               Connecticut / United States
             </p>
           </div>
 
           {/* Name */}
-          <h1 className="text-4xl md:text-5xl font-light mb-2 tracking-tight uppercase">
+          <h1 className="text-4xl md:text-5xl font-light mb-2 tracking-tight uppercase text-[#2d2d2d]">
             Dimitrios Pantzos
           </h1>
 
           {/* Title */}
-          <div className="mb-8 space-y-2 opacity-70">
+          <div className="mb-8 space-y-2 text-[#2d2d2d]/80">
             <p className="text-sm uppercase tracking-wider">President, Lyfe Hospitality</p>
             <p className="text-sm">Owner of Lyfe Café and Pizza Lyfe</p>
           </div>
 
           {/* Description */}
-          <div className="mb-12 opacity-60">
+          <div className="mb-12 text-[#2d2d2d]/70">
             <p className="text-sm leading-relaxed">
               Architect of national foodservice growth for plant-based brands. Led strategic expansion
               for Dr. Praeger's, Daring, and Violife across QSR chains, K-12 programs, and hospitality
@@ -43,54 +43,38 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Brands Carousel */}
+          <div className="mb-8 overflow-hidden">
+            <div className="flex animate-scroll">
+              {[...brands, ...brands].map((brand, i) => (
+                <a
+                  key={i}
+                  href={brand.href}
+                  target={brand.href !== "#" ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 px-4 text-sm text-[#2d2d2d]/60 hover:text-[#2d2d2d] transition-colors whitespace-nowrap"
+                >
+                  {brand.name}
+                  <span className="ml-4 text-[#2d2d2d]/30">·</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Contact */}
-          <div className="border-t border-[#1a1a1a]/20 pt-8">
+          <div className="border-t border-[#2d2d2d] pt-8">
             <a
               href="mailto:me@dimitri.app"
-              className="inline-flex items-center gap-3 text-sm uppercase tracking-wider hover:opacity-60 transition-opacity group"
+              className="inline-flex items-center gap-3 text-sm uppercase tracking-wider text-[#2d2d2d] hover:text-[#2d2d2d]/60 transition-colors group"
             >
               <Mail size={16} className="group-hover:translate-x-1 transition-transform" />
-              <span className="border-b border-current">
+              <span className="border-b border-[#2d2d2d] group-hover:border-[#2d2d2d]/40">
                 me@dimitri.app
               </span>
             </a>
           </div>
         </div>
-      </main>
-
-      {/* Carousel */}
-      <div className="w-full overflow-hidden py-8 border-t border-[#1a1a1a]/10">
-        <div className="carousel-track flex">
-          {/* First set */}
-          {companies.map((company, i) => (
-            <div key={`a-${i}`} className="flex-shrink-0 px-6 md:px-10">
-              <a
-                href={company.href}
-                target={company.href !== "#" ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="text-lg font-medium opacity-50 hover:opacity-100 transition-opacity whitespace-nowrap"
-              >
-                {company.name}
-              </a>
-              <span className="ml-6 md:ml-10 opacity-20">·</span>
-            </div>
-          ))}
-          {/* Duplicate for seamless loop */}
-          {companies.map((company, i) => (
-            <div key={`b-${i}`} className="flex-shrink-0 px-6 md:px-10">
-              <a
-                href={company.href}
-                target={company.href !== "#" ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="text-lg font-medium opacity-50 hover:opacity-100 transition-opacity whitespace-nowrap"
-              >
-                {company.name}
-              </a>
-              <span className="ml-6 md:ml-10 opacity-20">·</span>
-            </div>
-          ))}
-        </div>
       </div>
-    </div>
+    </main>
   );
 }

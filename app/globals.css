@@ -1,23 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #E8E6E1;
-  --foreground: #1a1a1a;
+  --background: #f5f1e8;
+  --foreground: #2d2d2d;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
 }
 
-/* Carousel animation */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-scroll {
+    animation: scroll 15s linear infinite;
+  }
+  
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -25,14 +37,6 @@ body {
   100% {
     transform: translateX(-50%);
   }
-}
-
-.carousel-track {
-  animation: scroll 25s linear infinite;
-}
-
-.carousel-track:hover {
-  animation-play-state: paused;
 }
 
 @layer base {
