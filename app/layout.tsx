@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Dimitrios Pantzos",
-  description: "President, Lyfe Hospitality. Owner of Lyfe Café and Pizza Lyfe in Connecticut.",
+  description: "President, Lyfe Hospitality. Building health-focused restaurants in Connecticut.",
 };
 
 export default function RootLayout({

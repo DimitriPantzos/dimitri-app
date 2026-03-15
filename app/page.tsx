@@ -28,9 +28,8 @@ export default function Home() {
           </h1>
 
           {/* Title */}
-          <div className="mb-8 space-y-2 text-[#2d2d2d]/80">
+          <div className="mb-8 text-[#2d2d2d]/80">
             <p className="text-sm uppercase tracking-wider">President, Lyfe Hospitality</p>
-            <p className="text-sm">Owner of Lyfe Café and Pizza Lyfe</p>
           </div>
 
           {/* Description */}
