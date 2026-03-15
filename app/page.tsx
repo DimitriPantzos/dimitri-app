@@ -43,6 +43,7 @@ export default function Home() {
           </div>
 
           {/* Brands Carousel */}
+          <p className="text-xs uppercase tracking-wider text-[#2d2d2d]/50 mb-4">Lyfe Hospitality Brands</p>
           <div className="mb-8 overflow-hidden">
             <div className="flex animate-scroll">
               {[...brands, ...brands].map((brand, i) => (
