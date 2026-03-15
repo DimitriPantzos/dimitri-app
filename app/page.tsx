@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const brands = [
   { name: "Pizza Lyfe", href: "https://pizzalyfe.com", logo: "/logos/pizza-lyfe.webp" },
-  { name: "Lyfe Cafe", href: "#", logo: "/logos/lyfe-cafe.jpg" },
+  { name: "Lyfe Cafe", href: "https://lyfe.cafe", logo: "/logos/lyfe-cafe.jpg" },
   { name: "Organika Kitchen", href: "https://organikact.com", logo: "/logos/organika.png" },
   { name: "Quattro Pazzi", href: "https://quattropazzi.com", logo: "/logos/quattro-pazzi.png" },
 ];
