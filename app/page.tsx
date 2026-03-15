@@ -1,12 +1,13 @@
 "use client";
 
 import { Mail } from "lucide-react";
+import Image from "next/image";
 
 const brands = [
-  { name: "Pizza Lyfe", href: "https://pizzalyfe.com" },
-  { name: "Lyfe Cafe", href: "#" },
-  { name: "Organika Kitchen", href: "#" },
-  { name: "Quattro Pazzi", href: "#" },
+  { name: "Pizza Lyfe", href: "https://pizzalyfe.com", logo: "/logos/pizza-lyfe.webp" },
+  { name: "Lyfe Cafe", href: "#", logo: "/logos/lyfe-cafe.jpg" },
+  { name: "Organika Kitchen", href: "https://organikact.com", logo: "/logos/organika.png" },
+  { name: "Quattro Pazzi", href: "https://quattropazzi.com", logo: "/logos/quattro-pazzi.png" },
 ];
 
 export default function Home() {
@@ -45,17 +46,23 @@ export default function Home() {
           {/* Brands Carousel */}
           <p className="text-xs uppercase tracking-wider text-[#2d2d2d]/50 mb-4">Lyfe Hospitality Brands</p>
           <div className="mb-8 overflow-hidden">
-            <div className="flex animate-scroll">
+            <div className="flex animate-scroll items-center">
               {[...brands, ...brands].map((brand, i) => (
                 <a
                   key={i}
                   href={brand.href}
                   target={brand.href !== "#" ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 px-4 text-sm text-[#2d2d2d]/60 hover:text-[#2d2d2d] transition-colors whitespace-nowrap"
+                  className="flex-shrink-0 px-6 opacity-70 hover:opacity-100 transition-opacity"
+                  title={brand.name}
                 >
-                  {brand.name}
-                  <span className="ml-4 text-[#2d2d2d]/30">·</span>
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={120}
+                    height={60}
+                    className="h-12 w-auto object-contain"
+                  />
                 </a>
               ))}
             </div>
