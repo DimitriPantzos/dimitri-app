@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dimitrios Pantzos",
-  description: "President, Lyfe Hospitality. Building health-focused restaurants in Connecticut.",
+  title: "Lyfe Hospitality | Bringing Good Food to Lyfe",
+  description:
+    "Lyfe Hospitality is a Connecticut-based restaurant group behind Pizza Lyfe, Lyfe Cafe, Organika Kitchen, and Quattro Pazzi — health-forward brands united by one belief: food should make your life better.",
 };
 
 export default function RootLayout({
