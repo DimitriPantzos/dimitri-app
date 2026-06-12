@@ -36,6 +36,14 @@ const brands = [
     description:
       "A beloved Italian trattoria serving time-honored recipes with warm hospitality — four crazy guys, one unforgettable table.",
   },
+  {
+    name: "Sweet Lyfe",
+    href: "https://sweetlyfe.app",
+    logo: "/logos/sweet-lyfe.png",
+    tagline: "Small-Batch Happiness",
+    description:
+      "A micro creamery churning small-batch ice cream with real, simple ingredients — the sweetest side of the Lyfe family.",
+  },
 ];
 
 const navLinks = [
@@ -99,7 +107,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <div className="flex items-baseline justify-between border-b border-[#2d2d2d] pb-6 mb-12">
             <h2 className="text-2xl md:text-3xl font-light uppercase tracking-tight">Our Brands</h2>
-            <p className="text-xs uppercase tracking-wider text-[#2d2d2d]/50">04 Concepts</p>
+            <p className="text-xs uppercase tracking-wider text-[#2d2d2d]/50">05 Concepts</p>
           </div>
           <div className="grid md:grid-cols-2 gap-px bg-[#2d2d2d] border-2 border-[#2d2d2d]">
             {brands.map((brand, i) => (
@@ -108,7 +116,9 @@ export default function Home() {
                 href={brand.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-[#f5f1e8] p-10 md:p-12 hover:bg-[#efe9db] transition-colors"
+                className={`group bg-[#f5f1e8] p-10 md:p-12 hover:bg-[#efe9db] transition-colors ${
+                  i === brands.length - 1 && brands.length % 2 === 1 ? "md:col-span-2" : ""
+                }`}
               >
                 <div className="flex items-start justify-between mb-8">
                   <span className="text-xs uppercase tracking-wider text-[#2d2d2d]/40">
