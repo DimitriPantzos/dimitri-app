@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, ArrowUpRight, GraduationCap } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const brands = [
@@ -237,13 +237,6 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.2em]">
             Lyfe <span className="text-[#e8402a]">Hospitality</span>
           </p>
-          <a
-            href="/training"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#2d2d2d]/50 hover:text-[#e8402a] transition-colors"
-          >
-            <GraduationCap size={14} />
-            Team Training Portal
-          </a>
           <p className="text-xs text-[#2d2d2d]/40">
             &copy; {new Date().getFullYear()} Lyfe Hospitality. All rights reserved.
           </p>
