@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight, Leaf } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -56,8 +56,8 @@ const navLinks = [
 
 const stats = [
   { value: "05", label: "Distinct Concepts" },
-  { value: "CT", label: "Rooted in Connecticut" },
-  { value: "1", label: "Belief: Food Should Heal" },
+  { value: "100%", label: "Clean Ingredients" },
+  { value: "CT", label: "Rooted Locally" },
 ];
 
 function Reveal({
@@ -82,7 +82,7 @@ function Reveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -101,113 +101,89 @@ function Reveal({
 
 export default function Home() {
   return (
-    <main className="relative z-[2] min-h-screen text-[#1d1b17]">
+    <main className="min-h-screen text-[#0a1f16]">
       {/* Navigation */}
-      <header className="sticky top-0 z-50 border-b border-[#1d1b17]/10 bg-[#f3eee1]/80 backdrop-blur-md">
-        <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-50 border-b border-[#0a1f16]/8 bg-[#f7faf5]/85 backdrop-blur-md">
+        <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <a
             href="#top"
-            className="font-display text-base md:text-lg tracking-tight"
+            className="font-display text-lg font-extrabold tracking-tight flex items-center gap-2"
           >
-            Lyfe <span className="italic text-gradient">Hospitality</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0f9d63] text-white">
+              <Leaf size={15} />
+            </span>
+            Lyfe
           </a>
-          <div className="hidden sm:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-9">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[11px] uppercase tracking-[0.2em] text-[#1d1b17]/60 hover:text-[#e8402a] transition-colors"
+                className="text-sm font-medium text-[#0a1f16]/65 hover:text-[#0f9d63] transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="rounded-full bg-[#1d1b17] px-5 py-2 text-[11px] uppercase tracking-[0.2em] text-[#f3eee1] hover:bg-[#e8402a] transition-colors"
-            >
-              Get in Touch
-            </a>
           </div>
+          <a
+            href="#contact"
+            className="rounded-full bg-[#0a1f16] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#0f9d63] transition-colors"
+          >
+            Get in Touch
+          </a>
         </nav>
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 md:pt-36 md:pb-24">
-          <p
-            className="hero-line text-[11px] uppercase tracking-[0.4em] text-[#1d1b17]/50 mb-8"
-            style={{ animationDelay: "0.05s" }}
-          >
-            Connecticut&nbsp;/&nbsp;Restaurant Group&nbsp;/&nbsp;Est. for Good
-          </p>
-          <h1 className="font-display font-light leading-[0.95] tracking-tight text-[clamp(3rem,11vw,9rem)]">
-            <span
-              className="hero-line block"
-              style={{ animationDelay: "0.15s" }}
-            >
-              Bringing
-            </span>
-            <span
-              className="hero-line block"
-              style={{ animationDelay: "0.3s" }}
-            >
-              good food
-            </span>
-            <span
-              className="hero-line block italic"
-              style={{ animationDelay: "0.45s" }}
-            >
-              to <span className="text-gradient">lyfe.</span>
-            </span>
-          </h1>
-          <div
-            className="hero-line mt-10 flex flex-col md:flex-row md:items-end gap-8 md:gap-16"
-            style={{ animationDelay: "0.6s" }}
-          >
-            <p className="max-w-md text-base leading-relaxed text-[#1d1b17]/70 text-pretty">
-              A Connecticut-based restaurant group building a family of
-              health-forward brands — from craft pizza to organic kitchens —
-              united by one belief: food should make your life better.
-            </p>
-            <a
-              href="#brands"
-              className="group inline-flex shrink-0 items-center gap-3 rounded-full border border-[#1d1b17] px-7 py-3.5 text-[11px] uppercase tracking-[0.25em] hover:bg-[#1d1b17] hover:text-[#f3eee1] transition-colors"
-            >
-              Explore Our Brands
-              <ArrowUpRight
-                size={15}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-              />
-            </a>
+      <section id="top">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-20 md:pt-32 md:pb-28">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#0f9d63]/30 bg-[#0f9d63]/8 px-4 py-1.5 text-sm font-semibold text-[#0a7d4d] mb-8">
+            <Leaf size={15} />
+            Connecticut&apos;s health-forward restaurant group
           </div>
-        </div>
-
-        {/* Brand-name marquee */}
-        <div className="group/marquee border-y border-[#1d1b17]/10 py-5 overflow-hidden">
-          <div className="animate-scroll flex w-max items-center gap-12 whitespace-nowrap">
-            {[...brands, ...brands].map((b, i) => (
-              <span
-                key={i}
-                className="font-display text-2xl md:text-3xl italic text-[#1d1b17]/35 flex items-center gap-12"
+          <h1 className="font-display font-extrabold tracking-tight leading-[0.92] text-[clamp(3rem,9.5vw,8rem)]">
+            Bringing good
+            <br />
+            food to <span className="text-[#0f9d63]">lyfe.</span>
+          </h1>
+          <div className="mt-10 flex flex-col md:flex-row md:items-center gap-7 md:gap-10">
+            <p className="max-w-xl text-lg md:text-xl leading-relaxed text-[#0a1f16]/65 text-pretty">
+              We build a family of bold, clean-eating brands — from craft pizza
+              to organic kitchens — united by one belief: food should make your
+              life better, and the planet too.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#brands"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#0f9d63] px-7 py-4 text-sm font-bold text-white hover:bg-[#0a7d4d] transition-colors"
               >
-                {b.name}
-                <span className="text-[#e8402a] not-italic text-base">✦</span>
-              </span>
-            ))}
+                Explore Our Brands
+                <ArrowUpRight
+                  size={17}
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                />
+              </a>
+              <a
+                href="#about"
+                className="rounded-full border-2 border-[#0a1f16]/15 px-7 py-4 text-sm font-bold hover:border-[#0f9d63] hover:text-[#0f9d63] transition-colors"
+              >
+                Our Story
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats band */}
-      <section className="border-b border-[#1d1b17]/10">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#1d1b17]/10">
+      <section className="border-y border-[#0a1f16]/8 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#0a1f16]/8">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 100}>
-              <div className="py-10 sm:py-12 sm:px-10 first:sm:pl-0">
-                <p className="font-display text-5xl md:text-6xl font-light text-gradient">
+            <Reveal key={s.label} delay={i * 80}>
+              <div className="py-10 sm:py-14 sm:px-10 first:sm:pl-0">
+                <p className="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-[#0f9d63]">
                   {s.value}
                 </p>
-                <p className="mt-3 text-[11px] uppercase tracking-[0.2em] text-[#1d1b17]/55">
+                <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-[#0a1f16]/55">
                   {s.label}
                 </p>
               </div>
@@ -217,45 +193,42 @@ export default function Home() {
       </section>
 
       {/* Brands */}
-      <section id="brands" className="border-b border-[#1d1b17]/10">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <section id="brands">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
           <Reveal>
-            <div className="flex items-baseline justify-between border-b border-[#1d1b17]/15 pb-6 mb-12">
-              <h2 className="font-display text-3xl md:text-5xl font-light tracking-tight">
-                Our Brands
-              </h2>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#1d1b17]/45">
-                A Family of Five
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#0f9d63] mb-3">
+                  The Family
+                </p>
+                <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight">
+                  Five brands,
+                  <br />
+                  one belief.
+                </h2>
+              </div>
+              <p className="max-w-xs text-base text-[#0a1f16]/60 text-pretty">
+                Each concept stands on its own — but they all start with cleaner
+                ingredients and real hospitality.
               </p>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {brands.map((brand, i) => (
-              <Reveal
-                key={brand.name}
-                delay={(i % 2) * 100}
-                className={
-                  i === brands.length - 1 && brands.length % 2 === 1
-                    ? "md:col-span-2"
-                    : ""
-                }
-              >
+              <Reveal key={brand.name} delay={(i % 3) * 80}>
                 <a
                   href={brand.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#1d1b17]/12 bg-[#faf6ec]/70 p-9 md:p-11 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-1 hover:border-[#e8402a]/40 hover:shadow-[0_24px_50px_-20px_rgba(232,64,42,0.35)]"
+                  className="group flex h-full flex-col rounded-3xl border border-[#0a1f16]/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0f9d63] hover:shadow-[0_24px_48px_-24px_rgba(15,157,99,0.4)]"
                 >
-                  {/* hover glow */}
-                  <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#e8402a]/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
-
-                  <div className="relative flex items-start justify-between mb-8">
-                    <span className="font-display text-sm italic text-[#1d1b17]/35">
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="font-display text-sm font-bold text-[#0a1f16]/30">
                       0{i + 1}
                     </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1d1b17]/15 text-[#1d1b17]/40 transition-all duration-300 group-hover:border-[#e8402a] group-hover:bg-[#e8402a] group-hover:text-white">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f0f6ee] text-[#0a1f16]/40 transition-colors group-hover:bg-[#0f9d63] group-hover:text-white">
                       <ArrowUpRight
-                        size={16}
+                        size={17}
                         className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       />
                     </span>
@@ -265,15 +238,15 @@ export default function Home() {
                     alt={brand.name}
                     width={200}
                     height={100}
-                    className="relative h-16 w-auto object-contain object-left mb-8 transition-transform duration-500 group-hover:scale-105 group-hover:origin-left"
+                    className="h-14 w-auto object-contain object-left mb-7"
                   />
-                  <h3 className="font-display text-2xl tracking-tight mb-1">
+                  <h3 className="font-display text-2xl font-bold tracking-tight mb-1.5">
                     {brand.name}
                   </h3>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#e8402a] mb-4">
+                  <p className="text-sm font-bold uppercase tracking-wide text-[#0f9d63] mb-4">
                     {brand.tagline}
                   </p>
-                  <p className="text-sm leading-relaxed text-[#1d1b17]/65 text-pretty">
+                  <p className="text-[15px] leading-relaxed text-[#0a1f16]/60 text-pretty">
                     {brand.description}
                   </p>
                 </a>
@@ -283,68 +256,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="border-b border-[#1d1b17]/10">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-32 grid md:grid-cols-12 gap-10 md:gap-12">
-          <Reveal className="md:col-span-5">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[#e8402a] mb-5">
-              Our Philosophy
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05]">
-              Why
-              <span className="italic text-gradient"> &ldquo;Lyfe&rdquo;</span>?
-            </h2>
-            <div className="mt-8 h-1 w-20 rounded-full bg-gradient-to-r from-[#e8402a] to-[#e8a02a]" />
-          </Reveal>
-          <div className="md:col-span-7 space-y-7 text-lg md:text-xl leading-relaxed text-[#1d1b17]/75 font-display font-light">
-            <Reveal delay={100}>
-              <p className="text-pretty">
-                Because we believe eating well shouldn&apos;t feel like a
-                compromise. Every Lyfe Hospitality concept starts with the same
-                question: how do we make the food people already love, better
-                for the lives they want to live?
+      {/* About — bold dark-green statement section */}
+      <section id="about" className="bg-[#06301f] text-[#eaf3ec]">
+        <div className="max-w-7xl mx-auto px-6 py-24 md:py-36">
+          <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+            <Reveal className="md:col-span-5">
+              <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-[#16c47f] mb-5">
+                <Leaf size={16} />
+                Our Philosophy
               </p>
+              <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight leading-[0.95]">
+                Why
+                <br />
+                &ldquo;Lyfe&rdquo;?
+              </h2>
             </Reveal>
-            <Reveal delay={200}>
-              <p className="text-pretty">
-                From sourcing cleaner ingredients to building kitchens our
-                communities are proud of, we operate restaurants that
-                nourish — our guests, our teams, and the Connecticut
-                neighborhoods we call home.
-              </p>
-            </Reveal>
+            <div className="md:col-span-7 space-y-8 text-xl md:text-2xl leading-relaxed font-display font-medium tracking-tight">
+              <Reveal delay={80}>
+                <p className="text-pretty">
+                  Because eating well shouldn&apos;t feel like a compromise.
+                  Every concept starts with one question: how do we make the
+                  food people already love{" "}
+                  <span className="text-[#16c47f]">better</span> — for them, and
+                  for the planet?
+                </p>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="text-pretty text-lg md:text-xl font-sans font-normal text-[#eaf3ec]/70">
+                  From sourcing cleaner ingredients to building kitchens our
+                  communities are proud of, we operate restaurants that
+                  nourish — our guests, our teams, and the Connecticut
+                  neighborhoods we call home.
+                </p>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Leadership */}
-      <section id="leadership" className="border-b border-[#1d1b17]/10">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+      <section id="leadership" className="bg-white border-b border-[#0a1f16]/8">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
           <Reveal>
-            <div className="flex items-baseline justify-between border-b border-[#1d1b17]/15 pb-6 mb-14">
-              <h2 className="font-display text-3xl md:text-5xl font-light tracking-tight">
-                Leadership
-              </h2>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#1d1b17]/45">
-                Founder
-              </p>
-            </div>
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#0f9d63] mb-3">
+              Leadership
+            </p>
+            <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight mb-16">
+              The founder.
+            </h2>
           </Reveal>
-          <Reveal delay={100}>
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+          <Reveal delay={80}>
+            <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
               <div className="md:col-span-4">
-                <div className="flex h-48 w-48 items-center justify-center rounded-full bg-gradient-to-br from-[#e8402a] to-[#e8a02a] text-[#faf6ec]">
-                  <span className="font-display text-6xl font-light">DP</span>
+                <div className="flex aspect-square w-full max-w-xs items-center justify-center rounded-3xl bg-[#06301f]">
+                  <span className="font-display text-7xl font-extrabold text-[#16c47f]">
+                    DP
+                  </span>
                 </div>
               </div>
-              <div className="md:col-span-8 max-w-2xl">
-                <h3 className="font-display text-4xl md:text-5xl font-light tracking-tight mb-2">
+              <div className="md:col-span-8">
+                <h3 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight mb-2">
                   Dimitrios Pantzos
                 </h3>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-[#e8402a] mb-8">
+                <p className="text-sm font-bold uppercase tracking-wide text-[#0f9d63] mb-8">
                   President, Lyfe Hospitality
                 </p>
-                <p className="text-base md:text-lg leading-relaxed text-[#1d1b17]/70 text-pretty">
+                <p className="text-lg md:text-xl leading-relaxed text-[#0a1f16]/70 text-pretty">
                   Architect of national foodservice growth for plant-based
                   brands. Led strategic expansion for Dr. Praeger&apos;s,
                   Daring, and Violife across QSR chains, K-12 programs, and
@@ -361,18 +338,19 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="border-b border-[#1d1b17]/10">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+      <section id="contact">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[#e8402a] mb-5">
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#0f9d63] mb-3">
               Say Hello
             </p>
-            <h2 className="font-display text-4xl md:text-6xl font-light tracking-tight mb-14">
+            <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight mb-14">
               Let&apos;s build something
-              <span className="italic text-gradient"> delicious.</span>
+              <br />
+              <span className="text-[#0f9d63]">delicious.</span>
             </h2>
           </Reveal>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-3 gap-5">
             {[
               {
                 icon: Mail,
@@ -396,26 +374,26 @@ export default function Home() {
               const Icon = c.icon;
               const inner = (
                 <>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#e8402a]/10 text-[#e8402a] mb-6 transition-colors group-hover:bg-[#e8402a] group-hover:text-white">
-                    <Icon size={18} />
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0f9d63]/10 text-[#0f9d63] mb-6 transition-colors group-hover:bg-[#0f9d63] group-hover:text-white">
+                    <Icon size={20} />
                   </span>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#1d1b17]/45 mb-1">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-[#0a1f16]/45 mb-1">
                     {c.label}
                   </p>
-                  <p className="font-display text-xl">{c.value}</p>
+                  <p className="font-display text-xl font-bold">{c.value}</p>
                 </>
               );
               return (
-                <Reveal key={c.label} delay={i * 100}>
+                <Reveal key={c.label} delay={i * 80}>
                   {c.href ? (
                     <a
                       href={c.href}
-                      className="group flex h-full flex-col rounded-2xl border border-[#1d1b17]/12 bg-[#faf6ec]/70 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#e8402a]/40 hover:shadow-[0_20px_40px_-22px_rgba(232,64,42,0.35)]"
+                      className="group flex h-full flex-col rounded-3xl border border-[#0a1f16]/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0f9d63] hover:shadow-[0_24px_48px_-24px_rgba(15,157,99,0.4)]"
                     >
                       {inner}
                     </a>
                   ) : (
-                    <div className="group flex h-full flex-col rounded-2xl border border-[#1d1b17]/12 bg-[#faf6ec]/70 p-8">
+                    <div className="group flex h-full flex-col rounded-3xl border border-[#0a1f16]/10 bg-white p-8">
                       {inner}
                     </div>
                   )}
@@ -427,12 +405,15 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer>
-        <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-display text-lg">
-            Lyfe <span className="italic text-gradient">Hospitality</span>
+      <footer className="bg-[#06301f] text-[#eaf3ec]">
+        <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-display text-xl font-extrabold tracking-tight flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0f9d63] text-white">
+              <Leaf size={15} />
+            </span>
+            Lyfe Hospitality
           </p>
-          <p className="text-[11px] uppercase tracking-[0.2em] text-[#1d1b17]/40">
+          <p className="text-sm font-medium text-[#eaf3ec]/55">
             &copy; {new Date().getFullYear()} Lyfe Hospitality · Norwalk, CT
           </p>
         </div>
