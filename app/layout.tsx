@@ -4,36 +4,37 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dimitri.app"),
   title: {
-    default: "Dimitrios Pantzos — Founder & Operator",
-    template: "%s | Dimitrios Pantzos",
+    default: "Lyfe Hospitality — A Connecticut Collection of Restaurants",
+    template: "%s | Lyfe Hospitality",
   },
   description:
-    "Dimitrios Pantzos is a Connecticut-based founder and operator building health-forward food brands — Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe. Previously drove national foodservice growth for Dr. Praeger's, Daring, and Violife.",
+    "Lyfe Hospitality is a Connecticut hospitality group and a collection of restaurants for the way we want to live — Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe. Founded by Dimitrios Pantzos.",
   keywords: [
-    "Dimitrios Pantzos",
-    "Dimitri Pantzos",
-    "founder",
-    "restaurant operator",
     "Lyfe Hospitality",
-    "food entrepreneur",
-    "Connecticut",
-    "plant-based foodservice",
+    "Connecticut hospitality group",
+    "restaurant collection",
+    "Pizza Lyfe",
+    "Lyfe Cafe",
+    "Organika Kitchen",
+    "Quattro Pazzi",
+    "Sweet Lyfe",
+    "Dimitrios Pantzos",
   ],
-  authors: [{ name: "Dimitrios Pantzos" }],
+  authors: [{ name: "Lyfe Hospitality" }],
   openGraph: {
-    title: "Dimitrios Pantzos — Founder & Operator",
+    title: "Lyfe Hospitality — A Connecticut Collection of Restaurants",
     description:
-      "Founder and operator building health-forward food brands in Connecticut.",
+      "A Connecticut hospitality group and a collection of restaurants for the way we want to live.",
     url: "https://dimitri.app",
-    siteName: "Dimitrios Pantzos",
+    siteName: "Lyfe Hospitality",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dimitrios Pantzos — Founder & Operator",
+    title: "Lyfe Hospitality — A Connecticut Collection of Restaurants",
     description:
-      "Founder and operator building health-forward food brands in Connecticut.",
+      "A Connecticut hospitality group and a collection of restaurants for the way we want to live.",
   },
 };
 
@@ -48,7 +49,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
