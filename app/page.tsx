@@ -1,67 +1,56 @@
 "use client";
 
-import { ArrowUpRight, ArrowDown } from "lucide-react";
-import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const collection = [
+/*
+ * The House of Lyfe — a maison site.
+ * Five beats: Arrival → The Houses → The Standard → The Founder → Enquiries.
+ * No cards, no logos: the houses are an index that floods with each
+ * house's signature color. Frames are photo-ready for real photography.
+ */
+
+const houses = [
   {
     name: "Pizza Lyfe",
     href: "https://pizzalyfe.com",
-    logo: "/logos/pizza-lyfe.png",
-    tagline: "Pizza, Reimagined",
-    description:
-      "Craft pizza made with clean, better-for-you ingredients — proving that comfort food and conscious eating belong on the same plate.",
-    tint: "#1d4232",
-    kind: "Craft Pizzeria",
+    discipline: "Craft Pizzeria",
+    line: "Comfort food and conscious eating on the same plate.",
+    flood: "#b33a24",
+    ink: "#f3ece0",
   },
   {
     name: "Lyfe Cafe",
     href: "https://lyfe.cafe",
-    logo: "/logos/lyfe-cafe.png",
-    tagline: "Eat Well, Live Well",
-    description:
-      "A neighborhood cafe serving health-forward bowls, smoothies, and coffee — fuel for everyday lyfe, made fresh daily.",
-    tint: "#2a2118",
-    kind: "All-Day Cafe",
+    discipline: "All-Day Cafe · Westport",
+    line: "Bowls, smoothies, and coffee — fuel for everyday lyfe.",
+    flood: "#6b4a2b",
+    ink: "#f1e8da",
   },
   {
     name: "Organika Kitchen",
     href: "https://organikact.com",
-    logo: "/logos/organika.png",
-    tagline: "Organic to the Core",
-    description:
-      "An organic, plant-powered kitchen and juicery rooted in Connecticut — wholesome food that tastes as good as it makes you feel.",
-    tint: "#163527",
-    kind: "Organic Kitchen & Juicery",
+    discipline: "Organic Kitchen & Juicery",
+    line: "Plant-powered and organic to the core.",
+    flood: "#2e5d3c",
+    ink: "#eef3e4",
   },
   {
     name: "Quattro Pazzi",
     href: "https://quattropazzi.com",
-    logo: "/logos/quattro-pazzi.png",
-    tagline: "Classic Italian Soul",
-    description:
-      "A beloved Italian trattoria serving time-honored recipes with warm hospitality — four crazy guys, one unforgettable table.",
-    tint: "#3a2b1c",
-    kind: "Italian Trattoria",
+    discipline: "Italian Trattoria · Fairfield",
+    line: "Time-honored recipes. One unforgettable table.",
+    flood: "#5c2230",
+    ink: "#f3e9e4",
   },
   {
     name: "Sweet Lyfe",
     href: "https://sweetlyfe.app",
-    logo: "/logos/sweet-lyfe.png",
-    tagline: "Small-Batch Happiness",
-    description:
-      "A micro creamery churning small-batch ice cream with real, simple ingredients — the sweetest side of the Lyfe family.",
-    tint: "#24322a",
-    kind: "Micro Creamery",
+    discipline: "Micro Creamery",
+    line: "Small-batch ice cream with real, simple ingredients.",
+    flood: "#e9c8cf",
+    ink: "#3a1f26",
   },
-];
-
-const navLinks = [
-  { label: "The Collection", href: "#collection" },
-  { label: "Ethos", href: "#ethos" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Contact", href: "#contact" },
 ];
 
 function Reveal({
@@ -86,7 +75,7 @@ function Reveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -8% 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -103,271 +92,220 @@ function Reveal({
   );
 }
 
+function Seal() {
+  return (
+    <a href="#houses" aria-label="Scroll to the houses" className="group relative block h-32 w-32">
+      <svg viewBox="0 0 160 160" className="seal-spin h-full w-full">
+        <defs>
+          <path
+            id="seal-circle"
+            d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"
+          />
+        </defs>
+        <text className="font-display fill-[var(--bone)]/70 text-[11.5px] uppercase" style={{ letterSpacing: "0.32em" }}>
+          <textPath href="#seal-circle">
+            Lyfe Hospitality · Connecticut · Est. Fairfield County ·
+          </textPath>
+        </text>
+      </svg>
+      <span className="absolute inset-0 flex items-center justify-center text-[var(--bone)]/80 transition-transform duration-500 group-hover:translate-y-1">
+        ↓
+      </span>
+    </a>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--background)]/85 backdrop-blur-md">
-        <nav className="max-w-[1400px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
-          <a href="#top" className="font-display text-lg tracking-tight">
-            Lyfe Hospitality
+    <main className="min-h-screen bg-[var(--char)] text-[var(--bone)]">
+      {/* Fixed maison header — blend-difference so it inverts over light sections */}
+      <header className="fixed inset-x-0 top-0 z-50 mix-blend-difference">
+        <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-6 md:px-12 text-white">
+          <a href="#top" className="font-display text-base tracking-[0.28em] uppercase">
+            Lyfe
           </a>
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="eyebrow text-[var(--foreground)]/60 hover:text-[var(--brass)] transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="flex items-center gap-10">
+            <a
+              href="#houses"
+              className="eyebrow hidden sm:block opacity-70 hover:opacity-100 transition-opacity"
+            >
+              The Houses
+            </a>
+            <a
+              href="#enquiries"
+              className="eyebrow opacity-70 hover:opacity-100 transition-opacity"
+            >
+              Enquiries
+            </a>
           </div>
-          <a
-            href="#contact"
-            className="eyebrow border-b border-[var(--brass)] pb-1 text-[var(--brass)] hover:text-[var(--foreground)] hover:border-[var(--foreground)] transition-colors"
-          >
-            Enquire
-          </a>
         </nav>
       </header>
 
-      {/* Hero */}
-      <section id="top" className="border-b border-[var(--line)]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 pb-20 md:pt-40 md:pb-32">
-          <p className="eyebrow text-[var(--brass)] mb-10">
-            Connecticut · Est. Hospitality Group
+      {/* I. Arrival */}
+      <section id="top" className="relative flex min-h-screen flex-col">
+        <div className="flex flex-1 flex-col items-center justify-center px-6 pt-24 text-center">
+          <p className="eyebrow text-[var(--gold)] mb-12">
+            Fairfield County · Connecticut
           </p>
-          <h1 className="font-display font-light tracking-[-0.02em] leading-[1.02] text-[clamp(2.9rem,7vw,6.75rem)] max-w-[16ch] text-balance">
-            A collection of restaurants for the way we want to{" "}
-            <span className="italic text-[var(--forest)]">live.</span>
+          <h1 className="font-display leading-none tracking-[0.08em] text-[clamp(5rem,21vw,19rem)]">
+            LYFE
           </h1>
-          <div className="mt-14 grid md:grid-cols-2 gap-10 md:gap-20 items-end">
-            <p className="max-w-lg text-lg md:text-xl leading-relaxed text-muted text-pretty">
-              Lyfe Hospitality is a Connecticut hospitality group building a
-              family of singular dining concepts — each rooted in cleaner
-              ingredients, genuine warmth, and a belief that eating well should
-              never be a compromise.
+          <div className="mt-2 flex w-full max-w-[46rem] items-center gap-6 px-4">
+            <span className="h-px flex-1 bg-[var(--line-dark)]" />
+            <p className="font-display text-sm md:text-base tracking-[0.55em] uppercase text-[var(--bone)]/80 pl-2">
+              Hospitality
             </p>
-            <div className="flex items-center gap-10 md:justify-end">
-              <a
-                href="#collection"
-                className="group inline-flex items-center gap-3 font-display text-lg italic hover:text-[var(--brass)] transition-colors"
-              >
-                Explore the collection
-                <ArrowDown
-                  size={18}
-                  className="group-hover:translate-y-1 transition-transform"
-                />
-              </a>
-            </div>
+            <span className="h-px flex-1 bg-[var(--line-dark)]" />
           </div>
+          <p className="mt-14 max-w-md text-base md:text-lg leading-relaxed text-[var(--bone)]/60 text-balance">
+            A Connecticut house of restaurants devoted to eating well.
+          </p>
+        </div>
+        <div className="flex justify-center pb-12">
+          <Seal />
         </div>
       </section>
 
-      {/* Scale statement — dark, editorial */}
-      <section className="bg-[var(--forest)] text-[var(--ivory)]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-28">
+      {/* II. The Houses — typographic index, color floods */}
+      <section id="houses" className="border-t border-[var(--line-dark)]">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-12 pt-24 md:pt-32 pb-10 flex items-end justify-between">
           <Reveal>
-            <p className="eyebrow text-[var(--brass)] mb-10">By the Numbers</p>
-            <h2 className="font-display font-light text-3xl md:text-5xl leading-[1.15] max-w-4xl tracking-[-0.01em] text-balance">
-              Five distinct concepts. One of Connecticut&apos;s most ambitious
-              independent hospitality groups — and only getting started.
+            <p className="eyebrow text-[var(--gold)] mb-6">The Houses</p>
+            <h2 className="font-display text-3xl md:text-5xl tracking-wide">
+              Five houses. One standard.
             </h2>
           </Reveal>
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 border-t border-white/15">
-            {[
-              { value: "05", label: "Dining Concepts" },
-              { value: "CT", label: "Fairfield County Roots" },
-              { value: "∞", label: "Belief in Better Food" },
-            ].map((s, i) => (
-              <Reveal key={s.label} delay={i * 100}>
-                <div className="py-10 sm:pr-10 border-b sm:border-b-0 sm:border-r border-white/15 last:border-r-0">
-                  <p className="font-display font-light text-6xl md:text-7xl text-[var(--brass)]">
-                    {s.value}
-                  </p>
-                  <p className="eyebrow text-white/55 mt-4">{s.label}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* The Collection — full-width editorial features, photo-ready */}
-      <section id="collection" className="border-b border-[var(--line)]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-20 md:pt-32 pb-8">
-          <Reveal>
-            <div className="flex items-end justify-between border-b border-[var(--line)] pb-8">
-              <div>
-                <p className="eyebrow text-[var(--brass)] mb-5">The Collection</p>
-                <h2 className="font-display font-light text-4xl md:text-6xl tracking-[-0.02em]">
-                  Five houses,
-                  <br />
-                  one philosophy.
-                </h2>
-              </div>
-              <p className="hidden md:block eyebrow text-muted">01 — 05</p>
-            </div>
-          </Reveal>
+          <p className="eyebrow hidden md:block text-[var(--bone)]/40 pb-2">
+            01 — 05
+          </p>
         </div>
 
-        <div>
-          {collection.map((brand, i) => (
-            <Reveal key={brand.name}>
-              <a
-                href={brand.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block border-b border-[var(--line)]"
-              >
-                <div
-                  className={`max-w-[1400px] mx-auto px-6 md:px-10 py-12 md:py-20 grid md:grid-cols-2 gap-10 md:gap-16 items-center ${
-                    i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-                  }`}
+        <div className="border-t border-[var(--line-dark)]">
+          {houses.map((house, i) => (
+            <a
+              key={house.name}
+              href={house.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden border-b border-[var(--line-dark)] transition-colors duration-500"
+              style={
+                {
+                  "--flood": house.flood,
+                  "--ink": house.ink,
+                } as React.CSSProperties
+              }
+            >
+              {/* flood layer */}
+              <span
+                aria-hidden
+                className="absolute inset-0 origin-bottom scale-y-0 bg-[var(--flood)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100 group-focus-visible:scale-y-100"
+              />
+              <div className="relative mx-auto flex max-w-[1500px] flex-col gap-3 px-6 py-10 md:flex-row md:items-baseline md:gap-10 md:px-12 md:py-14">
+                <span
+                  className="font-display text-sm md:text-base italic transition-colors duration-500 group-hover:text-[var(--ink)]"
+                  style={{ color: house.flood }}
                 >
-                  {/* Image frame — photo-ready; shows the mark until real photography lands */}
-                  <div
-                    className="relative aspect-[4/3] w-full overflow-hidden"
-                    style={{ backgroundColor: brand.tint }}
-                  >
-                    <div className="absolute inset-0 flex items-center justify-center p-12">
-                      <Image
-                        src={brand.logo}
-                        alt={brand.name}
-                        width={420}
-                        height={220}
-                        className="max-h-28 w-auto object-contain opacity-95 transition-transform duration-700 group-hover:scale-[1.04] brightness-0 invert"
-                      />
-                    </div>
-                    <span className="absolute left-6 top-6 font-display text-sm italic text-white/55">
-                      0{i + 1}
-                    </span>
-                    <span className="absolute right-6 bottom-6 eyebrow text-white/45">
-                      {brand.kind}
-                    </span>
-                  </div>
-
-                  {/* Copy */}
-                  <div className="md:px-6">
-                    <p className="eyebrow text-[var(--brass)] mb-5">
-                      {brand.tagline}
-                    </p>
-                    <h3 className="font-display font-light text-4xl md:text-6xl tracking-[-0.02em] leading-[1] mb-6">
-                      {brand.name}
-                    </h3>
-                    <p className="max-w-md text-base md:text-lg leading-relaxed text-muted text-pretty mb-8">
-                      {brand.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 font-display text-lg italic border-b border-[var(--line)] pb-1 group-hover:border-[var(--brass)] group-hover:text-[var(--brass)] transition-colors">
-                      Visit
-                      <ArrowUpRight
-                        size={17}
-                        className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                      />
-                    </span>
-                  </div>
+                  0{i + 1}
+                </span>
+                <h3 className="font-display text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.05] tracking-wide transition-colors duration-500 group-hover:text-[var(--ink)]">
+                  {house.name}
+                </h3>
+                <div className="md:ml-auto md:text-right">
+                  <p className="eyebrow text-[var(--bone)]/45 transition-colors duration-500 group-hover:text-[var(--ink)]/75">
+                    {house.discipline}
+                  </p>
+                  <p className="mt-2 hidden max-w-xs text-sm leading-relaxed text-[var(--bone)]/0 transition-colors duration-500 group-hover:text-[var(--ink)]/90 md:block">
+                    {house.line}
+                  </p>
                 </div>
-              </a>
-            </Reveal>
+                <ArrowUpRight
+                  size={22}
+                  className="absolute right-6 top-10 text-[var(--bone)]/25 transition-all duration-500 group-hover:text-[var(--ink)] group-hover:translate-x-1 group-hover:-translate-y-1 md:right-12 md:top-14"
+                />
+              </div>
+            </a>
           ))}
         </div>
       </section>
 
-      {/* Ethos */}
-      <section id="ethos" className="border-b border-[var(--line)]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-36 grid md:grid-cols-12 gap-10 md:gap-16">
-          <Reveal className="md:col-span-4">
-            <p className="eyebrow text-[var(--brass)] mb-6">Our Ethos</p>
-            <h2 className="font-display font-light text-4xl md:text-6xl tracking-[-0.02em] leading-[1.02]">
-              Eating well,
-              <span className="italic text-[var(--forest)]"> without compromise.</span>
-            </h2>
+      {/* III. The Standard — light interlude */}
+      <section className="bg-[var(--bone)] text-[var(--char)]">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-12 py-28 md:py-44">
+          <Reveal>
+            <p className="eyebrow text-[var(--gold)] mb-10">The Standard</p>
           </Reveal>
-          <div className="md:col-span-8 md:pl-10 space-y-8 text-xl md:text-2xl leading-relaxed font-display font-light tracking-[-0.01em]">
-            <Reveal delay={80}>
-              <p className="text-pretty">
-                Every house in our collection begins with the same question: how
-                do we make the food people already love better — for the people
-                who eat it, and the place we all share?
+          <Reveal delay={100}>
+            <p className="font-display max-w-5xl text-[clamp(2rem,5vw,4.5rem)] leading-[1.12] tracking-wide text-balance">
+              Eating well is not a trend here.
+              <br />
+              It is the house standard.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-12 max-w-xl text-base md:text-lg leading-relaxed text-[var(--char)]/60 text-pretty">
+              Five kitchens, one conviction — that the food people love can
+              love them back. Cleaner ingredients, rooms our neighborhoods are
+              proud of, and hospitality with intent.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* IV. The Founder */}
+      <section className="border-t border-[var(--line-dark)]">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-12 py-24 md:py-36 grid gap-12 md:grid-cols-12">
+          <Reveal className="md:col-span-4">
+            <p className="eyebrow text-[var(--gold)] mb-8">The Founder</p>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight tracking-wide">
+              Dimitrios
+              <br />
+              Pantzos
+            </h2>
+            <p className="eyebrow mt-6 text-[var(--bone)]/45">President</p>
+          </Reveal>
+          <div className="md:col-span-7 md:col-start-6">
+            <Reveal delay={100}>
+              <p className="font-display text-xl md:text-2xl leading-relaxed tracking-wide text-[var(--bone)]/85 text-pretty">
+                The operator who helped carry Dr. Praeger&apos;s, Daring, and
+                Violife from regional labels to national foodservice staples —
+                across QSR chains, K-12 programs, and hospitality operators.
               </p>
             </Reveal>
-            <Reveal delay={160}>
-              <p className="text-pretty text-lg md:text-xl font-sans font-normal text-muted leading-relaxed">
-                From sourcing cleaner ingredients to designing rooms our
-                communities are proud of, we build restaurants that nourish —
-                our guests, our teams, and the Connecticut neighborhoods we call
-                home. It is hospitality with intent, and it is only the
-                beginning.
+            <Reveal delay={200}>
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--bone)]/55 text-pretty">
+                Lyfe Hospitality brings that discipline home: building
+                Connecticut&apos;s most health-forward restaurant group, one
+                house at a time.
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Leadership */}
-      <section id="leadership" className="border-b border-[var(--line)]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-36">
+      {/* V. Enquiries */}
+      <section id="enquiries" className="border-t border-[var(--line-dark)]">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-12 py-24 md:py-36">
           <Reveal>
-            <p className="eyebrow text-[var(--brass)] mb-12">Leadership</p>
+            <p className="eyebrow text-[var(--gold)] mb-10">Enquiries</p>
           </Reveal>
-          <Reveal delay={80}>
-            <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-              <div className="md:col-span-5">
-                <h3 className="font-display font-light text-5xl md:text-7xl tracking-[-0.02em] leading-[0.95]">
-                  Dimitrios
-                  <br />
-                  Pantzos
-                </h3>
-                <p className="eyebrow text-[var(--brass)] mt-6">
-                  Founder & President
-                </p>
-              </div>
-              <div className="md:col-span-7 md:pt-3">
-                <p className="text-lg md:text-xl leading-relaxed text-muted text-pretty">
-                  An architect of national foodservice growth for plant-based
-                  brands, Dimitrios led strategic expansion for Dr.
-                  Praeger&apos;s, Daring, and Violife across QSR chains, K-12
-                  programs, and hospitality operators — specializing in
-                  distribution architecture, commercial systems, and operator
-                  adoption. Having turned regional products into mainstream
-                  foodservice staples, he now channels that same discipline into
-                  Lyfe Hospitality: building Connecticut&apos;s most
-                  health-forward restaurant group, one house at a time.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="bg-[var(--forest)] text-[var(--ivory)]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-36">
-          <Reveal>
-            <p className="eyebrow text-[var(--brass)] mb-8">Enquiries</p>
-            <h2 className="font-display font-light text-4xl md:text-7xl tracking-[-0.02em] leading-[1] max-w-3xl text-balance">
-              Partnerships, press &amp; new ventures.
-            </h2>
-          </Reveal>
-          <div className="mt-16 grid sm:grid-cols-3 border-t border-white/15">
+          <div className="grid gap-y-10 md:grid-cols-3">
             {[
-              { label: "Email", value: "me@dimitri.app", href: "mailto:me@dimitri.app" },
+              { label: "Correspondence", value: "me@dimitri.app", href: "mailto:me@dimitri.app" },
               { label: "Telephone", value: "203 551 1003", href: "tel:+12035511003" },
-              { label: "Location", value: "Norwalk, Connecticut", href: null },
+              { label: "Address", value: "Norwalk, Connecticut", href: null },
             ].map((c, i) => (
               <Reveal key={c.label} delay={i * 100}>
-                <div className="py-10 sm:pr-10 border-b sm:border-b-0 sm:border-r border-white/15 last:border-r-0">
-                  <p className="eyebrow text-white/50 mb-4">{c.label}</p>
+                <div className="md:pr-10">
+                  <p className="eyebrow text-[var(--bone)]/40 mb-4">{c.label}</p>
                   {c.href ? (
                     <a
                       href={c.href}
-                      className="font-display font-light text-2xl md:text-3xl hover:text-[var(--brass)] transition-colors"
+                      className="font-display text-2xl md:text-3xl tracking-wide hover:text-[var(--gold)] transition-colors"
                     >
                       {c.value}
                     </a>
                   ) : (
-                    <p className="font-display font-light text-2xl md:text-3xl">
+                    <p className="font-display text-2xl md:text-3xl tracking-wide">
                       {c.value}
                     </p>
                   )}
@@ -376,17 +314,19 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Footer */}
-      <footer>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-display text-lg tracking-tight">Lyfe Hospitality</p>
-          <p className="eyebrow text-muted">
-            &copy; {new Date().getFullYear()} — Norwalk, Connecticut
-          </p>
+        {/* Colophon */}
+        <div className="border-t border-[var(--line-dark)]">
+          <div className="mx-auto flex max-w-[1500px] flex-col items-center justify-between gap-4 px-6 py-10 md:px-12 sm:flex-row">
+            <p className="font-display tracking-[0.28em] uppercase text-sm">
+              Lyfe <span className="text-[var(--gold)]">Hospitality</span>
+            </p>
+            <p className="eyebrow text-[var(--bone)]/35">
+              &copy; {new Date().getFullYear()} · Norwalk, Connecticut
+            </p>
+          </div>
         </div>
-      </footer>
+      </section>
     </main>
   );
 }

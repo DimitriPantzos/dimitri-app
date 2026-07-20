@@ -4,27 +4,28 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dimitri.app"),
   title: {
-    default: "Lyfe Hospitality — A Connecticut Collection of Restaurants",
+    default: "Lyfe Hospitality — A Connecticut House of Restaurants",
     template: "%s | Lyfe Hospitality",
   },
   description:
-    "Lyfe Hospitality is a Connecticut hospitality group and a collection of restaurants for the way we want to live — Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe. Founded by Dimitrios Pantzos.",
+    "Lyfe Hospitality is a Connecticut house of restaurants devoted to eating well — Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe. Founded by Dimitrios Pantzos.",
   keywords: [
     "Lyfe Hospitality",
     "Connecticut hospitality group",
-    "restaurant collection",
+    "restaurant group",
     "Pizza Lyfe",
     "Lyfe Cafe",
     "Organika Kitchen",
     "Quattro Pazzi",
     "Sweet Lyfe",
     "Dimitrios Pantzos",
+    "Fairfield County restaurants",
   ],
   authors: [{ name: "Lyfe Hospitality" }],
   openGraph: {
-    title: "Lyfe Hospitality — A Connecticut Collection of Restaurants",
+    title: "Lyfe Hospitality — A Connecticut House of Restaurants",
     description:
-      "A Connecticut hospitality group and a collection of restaurants for the way we want to live.",
+      "A Connecticut house of restaurants devoted to eating well. Five houses, one standard.",
     url: "https://dimitri.app",
     siteName: "Lyfe Hospitality",
     locale: "en_US",
@@ -32,9 +33,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lyfe Hospitality — A Connecticut Collection of Restaurants",
+    title: "Lyfe Hospitality — A Connecticut House of Restaurants",
     description:
-      "A Connecticut hospitality group and a collection of restaurants for the way we want to live.",
+      "A Connecticut house of restaurants devoted to eating well. Five houses, one standard.",
   },
 };
 
@@ -49,7 +50,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>

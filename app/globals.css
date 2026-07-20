@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #f4f1ea;
-  --foreground: #17150f;
-  --muted: #6f6a5e;
-  --forest: #163527;
-  --forest-soft: #1d4232;
-  --brass: #9b7b41;
-  --ivory: #faf8f2;
-  --line: rgba(23, 21, 15, 0.14);
-  --font-display: "Fraunces", "Times New Roman", serif;
+  /* The House of Lyfe — maison palette */
+  --char: #131210; /* warm near-black */
+  --char-soft: #1a1917;
+  --bone: #ede7db;
+  --bone-soft: #e4dccd;
+  --gold: #a58a4e; /* champagne accent */
+  --line-dark: rgba(237, 231, 219, 0.14);
+  --line-light: rgba(19, 18, 16, 0.16);
+  --font-display: "Marcellus", "Times New Roman", serif;
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -20,16 +20,20 @@ html {
 }
 
 body {
-  color: var(--foreground);
-  background-color: var(--background);
+  color: var(--char);
+  background-color: var(--bone);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: var(--gold);
+  color: var(--char);
+}
+
 .font-display {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
 }
 
 @layer utilities {
@@ -39,28 +43,31 @@ body {
   .text-pretty {
     text-wrap: pretty;
   }
-  .text-muted {
-    color: var(--muted);
-  }
   .eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    letter-spacing: 0.34em;
     text-transform: uppercase;
     font-weight: 500;
   }
-  .rule {
-    height: 1px;
-    background: var(--line);
+}
+
+/* Slow-turning typographic seal */
+.seal-spin {
+  animation: seal-rotate 44s linear infinite;
+}
+@keyframes seal-rotate {
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* Restrained, luxury-paced reveal */
+/* Restrained reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(20px);
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
@@ -73,5 +80,8 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .seal-spin {
+    animation: none;
   }
 }
