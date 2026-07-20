@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #f3eee1;
-  --foreground: #1d1b17;
-  --tomato: #e8402a;
-  --tomato-deep: #c8341f;
-  --amber: #e8a02a;
-  --cream: #faf6ec;
-  --ink: #1d1b17;
-  --font-display: "Fraunces", "Times New Roman", serif;
+  --background: #f7faf5;
+  --foreground: #0a1f16;
+  --forest: #06301f;
+  --emerald: #0f9d63;
+  --emerald-bright: #16c47f;
+  --lime: #c8f169;
+  --paper: #ffffff;
+  --font-display: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -24,29 +24,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.01em;
-  /* Layered warm gradient mesh — gives the flat cream depth */
-  background-image:
-    radial-gradient(60% 50% at 15% 0%, rgba(232, 160, 42, 0.12), transparent 70%),
-    radial-gradient(50% 45% at 95% 5%, rgba(232, 64, 42, 0.1), transparent 70%),
-    radial-gradient(70% 60% at 50% 110%, rgba(232, 64, 42, 0.06), transparent 70%);
-  background-attachment: fixed;
-}
-
-/* Film-grain overlay for a tactile, editorial print feel */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .font-display {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
 }
 
 @layer utilities {
@@ -56,30 +38,15 @@ body::before {
   .text-pretty {
     text-wrap: pretty;
   }
-
-  /* Brand-gradient text for accent words */
-  .text-gradient {
-    background: linear-gradient(120deg, var(--tomato) 0%, var(--tomato-deep) 50%, var(--amber) 130%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .animate-scroll {
-    animation: scroll 28s linear infinite;
-  }
-  .group\/marquee:hover .animate-scroll {
-    animation-play-state: paused;
-  }
 }
 
-/* Scroll-reveal: elements start lowered + transparent, settle when in view */
+/* Subtle, restrained scroll-reveal — modern, not gimmicky */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(16px);
   transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
@@ -93,32 +60,4 @@ body::before {
     transform: none;
     transition: none;
   }
-  .animate-scroll {
-    animation: none;
-  }
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes float-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.hero-line {
-  opacity: 0;
-  animation: float-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
