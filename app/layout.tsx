@@ -2,39 +2,38 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lyfehospitality.com"),
+  metadataBase: new URL("https://dimitri.app"),
   title: {
-    default: "Lyfe Hospitality | Bringing Good Food to Lyfe",
-    template: "%s | Lyfe Hospitality",
+    default: "Dimitrios Pantzos — Founder & Operator",
+    template: "%s | Dimitrios Pantzos",
   },
   description:
-    "Lyfe Hospitality is a Connecticut-based restaurant group behind Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe — health-forward brands united by one belief: food should make your life better.",
+    "Dimitrios Pantzos is a Connecticut-based founder and operator building health-forward food brands — Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe. Previously drove national foodservice growth for Dr. Praeger's, Daring, and Violife.",
   keywords: [
+    "Dimitrios Pantzos",
+    "Dimitri Pantzos",
+    "founder",
+    "restaurant operator",
     "Lyfe Hospitality",
-    "Connecticut restaurant group",
-    "Pizza Lyfe",
-    "Lyfe Cafe",
-    "Organika Kitchen",
-    "Quattro Pazzi",
-    "Sweet Lyfe",
-    "health-forward dining",
-    "Norwalk Connecticut restaurants",
+    "food entrepreneur",
+    "Connecticut",
+    "plant-based foodservice",
   ],
-  authors: [{ name: "Lyfe Hospitality" }],
+  authors: [{ name: "Dimitrios Pantzos" }],
   openGraph: {
-    title: "Lyfe Hospitality | Bringing Good Food to Lyfe",
+    title: "Dimitrios Pantzos — Founder & Operator",
     description:
-      "A Connecticut-based restaurant group building a family of health-forward brands — from craft pizza to organic kitchens.",
-    url: "https://lyfehospitality.com",
-    siteName: "Lyfe Hospitality",
+      "Founder and operator building health-forward food brands in Connecticut.",
+    url: "https://dimitri.app",
+    siteName: "Dimitrios Pantzos",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lyfe Hospitality | Bringing Good Food to Lyfe",
+    title: "Dimitrios Pantzos — Founder & Operator",
     description:
-      "A Connecticut-based restaurant group building a family of health-forward brands.",
+      "Founder and operator building health-forward food brands in Connecticut.",
   },
 };
 

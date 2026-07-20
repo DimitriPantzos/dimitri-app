@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #f7faf5;
-  --foreground: #0a1f16;
-  --forest: #06301f;
-  --emerald: #0f9d63;
-  --emerald-bright: #16c47f;
-  --lime: #c8f169;
-  --paper: #ffffff;
+  --background: #08100c;
+  --foreground: #eef3ef;
+  --muted: #9db3a6;
+  --emerald: #18cc82;
+  --emerald-deep: #0f9d63;
+  --surface: rgba(255, 255, 255, 0.028);
+  --border: rgba(255, 255, 255, 0.09);
   --font-display: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -24,11 +24,19 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* One soft emerald glow, top — subtle depth, no gimmick */
+  background-image: radial-gradient(
+    70% 55% at 50% -10%,
+    rgba(24, 204, 130, 0.14),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 @layer utilities {
@@ -38,9 +46,12 @@ body {
   .text-pretty {
     text-wrap: pretty;
   }
+  .text-muted {
+    color: var(--muted);
+  }
 }
 
-/* Subtle, restrained scroll-reveal — modern, not gimmicky */
+/* Restrained scroll-reveal */
 .reveal {
   opacity: 0;
   transform: translateY(16px);
