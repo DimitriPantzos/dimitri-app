@@ -3,16 +3,12 @@
 @tailwind utilities;
 
 :root {
-  /* The House of Lyfe — maison palette */
-  --char: #131210; /* warm near-black */
-  --char-soft: #1a1917;
-  --bone: #ede7db;
-  --bone-soft: #e4dccd;
-  --gold: #a58a4e; /* champagne accent */
-  --line-dark: rgba(237, 231, 219, 0.14);
-  --line-light: rgba(19, 18, 16, 0.16);
-  --font-display: "Marcellus", "Times New Roman", serif;
-  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #ffffff;
+  --ink: #111111;
+  --muted: #666666;
+  --link: #2563eb;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -20,68 +16,17 @@ html {
 }
 
 body {
-  color: var(--char);
-  background-color: var(--bone);
+  color: var(--ink);
+  background-color: var(--bg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background: var(--gold);
-  color: var(--char);
+a {
+  color: var(--link);
 }
-
-.font-display {
-  font-family: var(--font-display);
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .text-pretty {
-    text-wrap: pretty;
-  }
-  .eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-}
-
-/* Slow-turning typographic seal */
-.seal-spin {
-  animation: seal-rotate 44s linear infinite;
-}
-@keyframes seal-rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Restrained reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .seal-spin {
-    animation: none;
-  }
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

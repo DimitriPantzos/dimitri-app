@@ -4,38 +4,37 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dimitri.app"),
   title: {
-    default: "Lyfe Hospitality — A Connecticut House of Restaurants",
-    template: "%s | Lyfe Hospitality",
+    default: "dimitri pantzos",
+    template: "%s | dimitri pantzos",
   },
   description:
-    "Lyfe Hospitality is a Connecticut house of restaurants devoted to eating well — Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe. Founded by Dimitrios Pantzos.",
+    "Dimitri Pantzos is a restaurateur and operator in Norwalk, Connecticut — founder of Lyfe Hospitality: Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe.",
   keywords: [
+    "Dimitri Pantzos",
+    "Dimitrios Pantzos",
     "Lyfe Hospitality",
-    "Connecticut hospitality group",
-    "restaurant group",
     "Pizza Lyfe",
     "Lyfe Cafe",
     "Organika Kitchen",
     "Quattro Pazzi",
     "Sweet Lyfe",
-    "Dimitrios Pantzos",
-    "Fairfield County restaurants",
+    "Connecticut restaurants",
   ],
-  authors: [{ name: "Lyfe Hospitality" }],
+  authors: [{ name: "Dimitri Pantzos" }],
   openGraph: {
-    title: "Lyfe Hospitality — A Connecticut House of Restaurants",
+    title: "dimitri pantzos",
     description:
-      "A Connecticut house of restaurants devoted to eating well. Five houses, one standard.",
+      "Restaurateur & operator in Norwalk, Connecticut — founder of Lyfe Hospitality.",
     url: "https://dimitri.app",
-    siteName: "Lyfe Hospitality",
+    siteName: "dimitri pantzos",
     locale: "en_US",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Lyfe Hospitality — A Connecticut House of Restaurants",
+    card: "summary",
+    title: "dimitri pantzos",
     description:
-      "A Connecticut house of restaurants devoted to eating well. Five houses, one standard.",
+      "Restaurateur & operator in Norwalk, Connecticut — founder of Lyfe Hospitality.",
   },
 };
 
@@ -50,7 +49,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
