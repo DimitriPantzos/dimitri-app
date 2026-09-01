@@ -4,8 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dimitri.app"),
   title: {
-    default: "dimitri pantzos",
-    template: "%s | dimitri pantzos",
+    default: "Dimitri Pantzos",
+    template: "%s | Dimitri Pantzos",
   },
   description:
     "Dimitri Pantzos is a restaurateur and operator in Norwalk, Connecticut — founder of Lyfe Hospitality: Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe.",
@@ -22,17 +22,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Dimitri Pantzos" }],
   openGraph: {
-    title: "dimitri pantzos",
+    title: "Dimitri Pantzos",
     description:
       "Restaurateur & operator in Norwalk, Connecticut — founder of Lyfe Hospitality.",
     url: "https://dimitri.app",
-    siteName: "dimitri pantzos",
+    siteName: "Dimitri Pantzos",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "dimitri pantzos",
+    title: "Dimitri Pantzos",
     description:
       "Restaurateur & operator in Norwalk, Connecticut — founder of Lyfe Hospitality.",
   },
