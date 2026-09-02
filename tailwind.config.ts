@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+/** Editor/theme helper only. Tailwind v4 scans via @source in app/globals.css. */
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, ArrowUpRight, Leaf } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight, Leaf, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -43,7 +43,7 @@ const brands = [
     logo: "/logos/sweet-lyfe.png",
     tagline: "Small-Batch Happiness",
     description:
-      "A micro creamery churning small-batch ice cream with real, simple ingredients — the sweetest side of the Lyfe family.",
+      "A micro creamery serving small-batch Greek frozen yogurt and gelato with real, simple ingredients — the sweetest side of the Lyfe family.",
   },
 ];
 
@@ -70,7 +70,7 @@ function Reveal({
   delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
@@ -100,6 +100,22 @@ function Reveal({
 }
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   return (
     <main className="min-h-screen text-[#0a1f16]">
       {/* Navigation */}
@@ -108,6 +124,7 @@ export default function Home() {
           <a
             href="#top"
             className="font-display text-lg font-extrabold tracking-tight flex items-center gap-2"
+            onClick={() => setMenuOpen(false)}
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0f9d63] text-white">
               <Leaf size={15} />
@@ -125,14 +142,64 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <a
-            href="#contact"
-            className="rounded-full bg-[#0a1f16] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#0f9d63] transition-colors"
-          >
-            Get in Touch
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="rounded-full bg-[#0a1f16] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#0f9d63] transition-colors"
+            >
+              Get in Touch
+            </a>
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#0a1f16]/15 text-[#0a1f16] md:hidden"
+              aria-expanded={menuOpen}
+              aria-controls="hub-menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </nav>
       </header>
+
+      {menuOpen ? (
+        <div className="md:hidden">
+          <button
+            type="button"
+            className="fixed inset-0 z-40 bg-[#06301f]/40"
+            aria-label="Close menu"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div
+            id="hub-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            className="fixed inset-y-0 right-0 z-40 flex w-[min(20rem,88vw)] flex-col bg-[#f7faf5] px-6 pt-24 pb-8 shadow-[-16px_0_48px_-24px_rgba(6,48,31,0.35)]"
+          >
+            <nav className="flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-2xl px-4 py-3 text-lg font-semibold text-[#0a1f16] hover:bg-[#0f9d63]/10 hover:text-[#0f9d63]"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <a
+              href="#contact"
+              className="mt-6 rounded-full bg-[#0a1f16] px-6 py-3 text-center text-sm font-semibold text-white hover:bg-[#0f9d63]"
+              onClick={() => setMenuOpen(false)}
+            >
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      ) : null}
 
       {/* Hero */}
       <section id="top">
