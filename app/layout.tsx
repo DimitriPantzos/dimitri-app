@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lyfehospitality.com"),
+  metadataBase: new URL("https://dimitri.app"),
   title: {
     default: "Lyfe Hospitality | Bringing Good Food to Lyfe",
     template: "%s | Lyfe Hospitality",
@@ -21,11 +21,14 @@ export const metadata: Metadata = {
     "Norwalk Connecticut restaurants",
   ],
   authors: [{ name: "Lyfe Hospitality" }],
+  alternates: {
+    canonical: "https://dimitri.app",
+  },
   openGraph: {
     title: "Lyfe Hospitality | Bringing Good Food to Lyfe",
     description:
       "A Connecticut-based restaurant group building a family of health-forward brands — from craft pizza to organic kitchens.",
-    url: "https://lyfehospitality.com",
+    url: "https://dimitri.app",
     siteName: "Lyfe Hospitality",
     locale: "en_US",
     type: "website",

@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* v4 ignores tailwind.config content[]; register pages explicitly so
+   production builds emit layout utilities (md:flex, max-w-7xl, etc.). */
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
   --background: #f7faf5;
@@ -40,14 +43,14 @@ body {
   }
 }
 
-/* Subtle, restrained scroll-reveal — modern, not gimmicky */
+/* Visible by default so SSR / late JS never leaves the hub blank.
+   IntersectionObserver still adds .is-visible for the motion path. */
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
