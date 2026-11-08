@@ -1,43 +1,48 @@
 import type { Metadata } from "next";
+import { Inter, Sora } from "next/font/google";
 import "./globals.css";
+
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const description =
+  "Dimitri Pantzos is a Connecticut restaurateur behind Pizza Lyfe, Lyfe Cafe, Sweet Lyfe, Organika and Quattro Pazzi. Story, restaurants, press and contact.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dimitri.app"),
   title: {
-    default: "Lyfe Hospitality | Bringing Good Food to Lyfe",
-    template: "%s | Lyfe Hospitality",
+    default: "Dimitri Pantzos — Restaurateur, Westport, Connecticut",
+    template: "%s — Dimitri Pantzos",
   },
-  description:
-    "Lyfe Hospitality is a Connecticut-based restaurant group behind Pizza Lyfe, Lyfe Cafe, Organika Kitchen, Quattro Pazzi, and Sweet Lyfe — health-forward brands united by one belief: food should make your life better.",
-  keywords: [
-    "Lyfe Hospitality",
-    "Connecticut restaurant group",
-    "Pizza Lyfe",
-    "Lyfe Cafe",
-    "Organika Kitchen",
-    "Quattro Pazzi",
-    "Sweet Lyfe",
-    "health-forward dining",
-    "Norwalk Connecticut restaurants",
-  ],
-  authors: [{ name: "Lyfe Hospitality" }],
-  alternates: {
-    canonical: "https://dimitri.app",
-  },
+  description,
+  authors: [{ name: "Dimitri Pantzos" }],
   openGraph: {
-    title: "Lyfe Hospitality | Bringing Good Food to Lyfe",
-    description:
-      "A Connecticut-based restaurant group building a family of health-forward brands — from craft pizza to organic kitchens.",
-    url: "https://dimitri.app",
-    siteName: "Lyfe Hospitality",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    siteName: "Dimitri Pantzos",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dimitri Pantzos in a navy apron, arms crossed, inside Sweet Lyfe in Westport.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lyfe Hospitality | Bringing Good Food to Lyfe",
-    description:
-      "A Connecticut-based restaurant group building a family of health-forward brands.",
+    images: ["/og.jpg"],
   },
 };
 
@@ -47,16 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
