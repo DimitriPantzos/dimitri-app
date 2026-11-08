@@ -144,7 +144,7 @@ Google Fonts link **does ship:** Sora 400/500/600/700/800, Inter 400/500/600.
 | Founder name | Sora extrabold | `text-4xl md:text-5xl` | Dimitrios Pantzos |
 | Brand card title | Sora bold | `text-2xl font-bold tracking-tight` | Pizza Lyfe, … |
 | Stat numeral | Sora extrabold | `text-5xl md:text-6xl text-[#0f9d63]` | 05 / 100% / CT |
-| Contact value | Sora bold | `text-xl font-bold` | me@dimitri.app, 203-551-1003, Norwalk, Connecticut |
+| Contact value | Sora bold | `text-xl font-bold` | me@dimitri.app, Norwalk, Connecticut |
 | Footer wordmark | Sora extrabold | `text-xl` | Lyfe Hospitality |
 | Monogram | Sora extrabold | `text-7xl text-[#16c47f]` on forest square | “DP” |
 | Eyebrow | Inter bold | `text-sm font-bold uppercase tracking-[0.15em] text-[#0f9d63]` (on forest: `#16c47f`) | THE FAMILY, LEADERSHIP, SAY HELLO, OUR PHILOSOPHY |
@@ -231,7 +231,7 @@ No portrait in live HTML. Forest `rounded-3xl` square, Sora “DP” in emerald-
 
 ### 4.7 Contact (`#contact`) + footer
 
-Three paper cards: Email `mailto:me@dimitri.app` · Phone `tel:+12035511003` (display **203-551-1003**) · Location **Norwalk, Connecticut** (not a link). Icons: lucide mail / phone / map-pin in emerald wells.
+Three paper cards: Email `mailto:me@dimitri.app` · Location **Norwalk, Connecticut** (not a link). Icons: lucide mail / phone / map-pin in emerald wells.
 
 Footer: forest bar, leaf + “Lyfe Hospitality”, `© 2026 Lyfe Hospitality · Norwalk, CT`.
 
@@ -278,7 +278,7 @@ Mostly **flat mint-cream, white paper cards, one forest slab.** Depth is a quiet
 **Do**
 - Paint mint-cream `#f7faf5`, ink `#0a1f16`, emerald `#0f9d63`, forest `#06301f`. Sora on headlines, Inter on UI.
 - Keep **five** sister cards pointing at the live houses (`.app` for Sweet Lyfe).
-- Keep **one** group contact: `me@dimitri.app`, `203-551-1003`, Norwalk, CT.
+- Keep **one** group contact: `me@dimitri.app`, Norwalk, CT.
 - Treat missing per-house Order/hours/phone as a **light hub gap** (town + outbound link) — not a brief to embed Toast or clone a restaurant site.
 - Rebuild the Tailwind bundle so HTML classes actually exist (`md:flex`, spacing, type, `text-white`, `bg-white`).
 - SSR-visible content: never `.reveal { opacity: 0 }` without `.is-visible` in the HTML.
@@ -333,13 +333,13 @@ When generating or editing the Lyfe Hospitality **hub** (Stitch, codegen, copy d
 | Quattro Pazzi | `https://quattropazzi.com` |
 | Sweet Lyfe | `https://sweetlyfe.app` |
 
-5. **Group contact only:** `mailto:me@dimitri.app` · `tel:+12035511003` · Norwalk, Connecticut.
+5. **Group contact only:** `mailto:me@dimitri.app` · Norwalk, Connecticut.
 6. **Hard bans:** ice cream for Sweet Lyfe; `lyfehospitality.com` as canonical; `sweetlyfe.com`; cloning house chrome/hours/Toast onto the hub; Geist/zinc/indigo; opacity-0 content in SSR; ink-on-ink buttons.
 7. **CSS repair is in-place, not a redesign:** restore the missing utilities (or un-`hidden` the nav) so the **intended** classes paint. Do not invent a new visual system.
 
 Example prompt fragment:
 
-> Design the Lyfe Hospitality group hub on mint-cream `#f7faf5`. Sticky header: emerald leaf mark + Sora “Lyfe” + text nav (Brands / About / Leadership / Contact) + inverse pill “Get in Touch” (`#0a1f16` / white). Hero Sora extrabold “Bringing good food to *lyfe.*” (*lyfe.* in `#0f9d63`). Five paper `rounded-3xl` cards to pizzalyfe.com, lyfe.cafe, organikact.com, quattropazzi.com, sweetlyfe.app — Sweet Lyfe blurb is Greek frozen yogurt & gelato, never ice cream. Forest `#06301f` “Why Lyfe?” band. Founder DP monogram, Dimitrios Pantzos. Contact me@dimitri.app / 203-551-1003 / Norwalk. Do not add per-house hours or Order. Do not look like Stripe.
+> Design the Lyfe Hospitality group hub on mint-cream `#f7faf5`. Sticky header: emerald leaf mark + Sora “Lyfe” + text nav (Brands / About / Leadership / Contact) + inverse pill “Get in Touch” (`#0a1f16` / white). Hero Sora extrabold “Bringing good food to *lyfe.*” (*lyfe.* in `#0f9d63`). Five paper `rounded-3xl` cards to pizzalyfe.com, lyfe.cafe, organikact.com, quattropazzi.com, sweetlyfe.app — Sweet Lyfe blurb is Greek frozen yogurt & gelato, never ice cream. Forest `#06301f` “Why Lyfe?” band. Founder DP monogram, Dimitrios Pantzos. Contact me@dimitri.app / Norwalk. Do not add per-house hours or Order. Do not look like Stripe.
 
 ---
 
@@ -385,7 +385,6 @@ Cite tokens/components from this file. Repair in the existing Next app; do not p
 
 **Group contact (HTML)**
 - Email: `me@dimitri.app`
-- Phone: `203-551-1003` (`tel:+12035511003`)
 - Location: Norwalk, Connecticut
 - Footer: `© 2026 Lyfe Hospitality · Norwalk, CT`
 

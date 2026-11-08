@@ -353,7 +353,29 @@ img { max-width: 100%; }
   line-height: 1.45;
 }
 
+.work-place, .work-place-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  align-items: baseline;
+}
+
 .work-place, .work-arrow { display: none; }
+
+.place-soon {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.soon-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ochre-text);
+}
 
 .work-arrow { font-size: 1.25rem; transition: transform 160ms ease; }
 
@@ -428,7 +450,7 @@ a.contact-value { text-decoration-color: var(--on-navy-accent); text-decoration-
     grid-template-columns: 48px 64px minmax(0, 1fr) auto auto;
     align-items: center;
   }
-  .work-place { display: block; white-space: nowrap; }
+  .work-place { display: flex; white-space: normal; }
   .work-place-mobile { display: none; }
   .work-arrow { display: block; }
   .work-row:hover { background: var(--paper-2); }

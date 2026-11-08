@@ -14,7 +14,7 @@
 | Ink | `#0a1f16` | `--ink #14202e` navy-black (apron navy, darkened) |
 | Accent | emerald `#0f9d63`, forest `#06301f` | `--ochre #b8742a` (apron straps) for rules/marks only; `--ochre-text #8a5418` for small text; `--navy #23344d` for slab; emerald retired from personal site |
 | Nav | `#brands #about #leadership #contact` anchors | Routes `/`, `/about`, `/press`, `/#work`, `/#contact` |
-| Contact | `mailto:` (exact from live HTML), `tel:+12035511003`, "Norwalk, Connecticut" | Same values, unchanged |
+| Contact | `mailto:me@dimitri.app`, "Norwalk, Connecticut" | Email and place only. No personal phone. |
 | Logos | `/logos/{pizza-lyfe,lyfe-cafe,organika,quattro-pazzi,sweet-lyfe}.png` | Same files, same destinations |
 
 ## 1. Visual Theme & Atmosphere
@@ -53,7 +53,7 @@ Weights loaded: Sora 600/700, Inter 400/600 only.
 - **Portrait figure**: `<picture>` AVIF/WebP/JPEG, 0 radius, 1px `--rule` frame offset 12px bottom-right in `--paper-2` (desktop only). Caption "At Sweet Lyfe, Westport." meta style.
 - **Work index row** (not cards): grid `[numeral 48px][logo 64px][name+descriptor][place][→]`; 1px `--rule` between rows; whole row is the `<a>` to restaurant domain, `target` same tab, hover: background `--paper-2`, arrow shifts 4px. Numeral Sora 600 28px `--ochre`.
 - **Press item**: publication eyebrow, title H3 linked, byline+issue meta, 2–3 sentence original summary, "Read at {publisher} ↗" link (`rel="noopener"` new tab).
-- **Contact slab**: full-bleed `--navy`, paper text, three rows Email/Phone/Based; values Sora 600 clamp(1.25rem,2.5vw,1.75rem).
+- **Contact slab**: full-bleed `--navy`, paper text, rows Email and Based; values Sora 600 clamp(1.25rem,2.5vw,1.75rem). No personal phone.
 - **Buttons**: only two: primary = ink fill, paper text, 48px tall, 0 radius, padding 0 24px; secondary = text link with ochre underline.
 
 ## 5. Layout

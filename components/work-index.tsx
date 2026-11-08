@@ -1,5 +1,22 @@
 import Image from "next/image";
-import { restaurants } from "@/lib/content";
+import { restaurants, type RestaurantPlace } from "@/lib/content";
+
+function Places({ places, className }: { places: RestaurantPlace[]; className: string }) {
+  return (
+    <span className={className}>
+      {places.map((place) =>
+        place.comingSoon ? (
+          <span key={place.label} className="place-soon">
+            <span>{place.label}</span>
+            <span className="soon-label">Coming soon</span>
+          </span>
+        ) : (
+          <span key={place.label}>{place.label}</span>
+        ),
+      )}
+    </span>
+  );
+}
 
 export function WorkIndex() {
   return (
@@ -20,11 +37,9 @@ export function WorkIndex() {
             <span className="work-copy">
               <span className="work-name">{restaurant.name}</span>
               <span className="work-desc">{restaurant.descriptor}</span>
-              {restaurant.place ? (
-                <span className="work-place-mobile">{restaurant.place}</span>
-              ) : null}
+              <Places places={restaurant.places} className="work-place-mobile" />
             </span>
-            <span className="work-place">{restaurant.place ?? ""}</span>
+            <Places places={restaurant.places} className="work-place" />
             <span className="work-arrow" aria-hidden="true">
               →
             </span>

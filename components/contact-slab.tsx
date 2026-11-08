@@ -16,12 +16,6 @@ export function ContactSlab() {
             </a>
           </div>
           <div className="contact-row">
-            <span>Phone</span>
-            <a className="contact-value" href={contact.phoneHref}>
-              {contact.phone}
-            </a>
-          </div>
-          <div className="contact-row">
             <span>Based in</span>
             <span className="contact-value">{contact.place}</span>
           </div>

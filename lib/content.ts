@@ -4,6 +4,11 @@
  * and the legible headline, byline, and deck of “Building a Better Lyfe”
  * (Lily Caplan, Westport, Weston & Wilton, November/December 2026).
  * Awards, a relative’s health, a spouse, and a child are omitted on purpose.
+ * Owner correction, Nov 8 2026: Organika started in 2016. The family
+ * restaurant story names Quattro Pazzi, Osianna Mediterranean Taverna,
+ * and Post Road Diner, without dates, order, or current-ownership claims.
+ * The October 2026 profile printed 2015; this site does not say the
+ * magazine issued a correction.
  */
 
 export const portrait = {
@@ -16,15 +21,19 @@ export const portrait = {
 export const contact = {
   email: "me@dimitri.app",
   emailHref: "mailto:me@dimitri.app",
-  phone: "203-551-1003",
-  phoneHref: "tel:+12035511003",
   place: "Norwalk, Connecticut",
 } as const;
+
+export type RestaurantPlace = {
+  label: string;
+  /** Not open. Render the words “Coming soon”. No address, date, or booking link. */
+  comingSoon?: boolean;
+};
 
 export type Restaurant = {
   name: string;
   descriptor: string;
-  place: string | null;
+  places: RestaurantPlace[];
   href: string;
   logo: string;
 };
@@ -33,35 +42,35 @@ export const restaurants: Restaurant[] = [
   {
     name: "Pizza Lyfe",
     descriptor: "Sourdough, whole-grain crust pizza.",
-    place: "Westport · Milford",
+    places: [{ label: "Westport" }, { label: "Milford" }],
     href: "https://pizzalyfe.com",
     logo: "/logos/pizza-lyfe.png",
   },
   {
     name: "Lyfe Cafe",
     descriptor: "Strong cold brew, croissants and breakfast sandwiches.",
-    place: "Westport",
+    places: [{ label: "Westport" }, { label: "Fairfield", comingSoon: true }],
     href: "https://lyfe.cafe",
     logo: "/logos/lyfe-cafe.png",
   },
   {
     name: "Sweet Lyfe",
     descriptor: "Greek-style frozen yogurt made in-house, plus a candy shop.",
-    place: "Westport",
+    places: [{ label: "Westport" }],
     href: "https://sweetlyfe.app",
     logo: "/logos/sweet-lyfe.png",
   },
   {
     name: "Organika Kitchen",
-    descriptor: "The kitchen I opened in Southport in 2015.",
-    place: null,
+    descriptor: "The kitchen I opened in Southport in 2016.",
+    places: [{ label: "Southport" }],
     href: "https://organikact.com",
     logo: "/logos/organika.png",
   },
   {
     name: "Quattro Pazzi",
     descriptor: "My family's Italian restaurant.",
-    place: null,
+    places: [{ label: "Fairfield" }],
     href: "https://quattropazzi.com",
     logo: "/logos/quattro-pazzi.png",
   },
@@ -105,11 +114,11 @@ export function firstSentence(text: string) {
 export const aboutChapters = [
   {
     title: "Where it started",
-    body: "My family owned Quattro Pazzi in Fairfield and, over the years, a diner and the food service at a Norwalk golf course. I spent every day after school at one of our restaurants. By my junior year of high school I was cooking at Rebeccas in Greenwich.",
+    body: "My family's restaurant story began with Quattro Pazzi, Osianna Mediterranean Taverna and Post Road Diner. I spent every day after school at one of our restaurants. By my junior year of high school I was cooking at Rebeccas in Greenwich.",
   },
   {
     title: "Organika",
-    body: "In 2015, a few months after graduating high school, I opened Organika, a vegan restaurant in Southport, with my aunt Kathy. A second location in New Canaan followed within a year, then Ridgefield. I later sold those two locations.",
+    body: "In 2016 I opened Organika, a vegan restaurant in Southport, with my aunt Kathy. A second location in New Canaan followed within a year, then Ridgefield. I later sold those two locations.",
   },
   {
     title: "Foodservice",

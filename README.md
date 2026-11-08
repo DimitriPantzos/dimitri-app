@@ -47,5 +47,4 @@ This site is designed to be deployed on Vercel:
 ## Contact
 
 - Email: me@dimitri.app
-- Phone: 203-551-1003
 - Location: Norwalk, CT

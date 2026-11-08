@@ -107,11 +107,6 @@ export const contactItems: ContactItem[] = [
     href: "mailto:me@dimitri.app",
   },
   {
-    label: "Phone",
-    value: "203-551-1003",
-    href: "tel:+12035511003",
-  },
-  {
     label: "Location",
     value: "Norwalk, Connecticut",
     href: null,

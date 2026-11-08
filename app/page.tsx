@@ -69,7 +69,7 @@ export default function Home() {
           <p className="eyebrow">The story</p>
           <h2 className="h2">Raised in the kitchen.</h2>
           <p className="body story-body">
-            My family ran Quattro Pazzi in Fairfield, and I spent my after-school hours in our restaurants. In 2015, months after high school, I opened Organika in Southport with my aunt Kathy. After a stretch in plant-based foodservice with brands like Violife, I came back to open Pizza Lyfe in Westport in December 2022 — then Lyfe Cafe across the street, then Sweet Lyfe next door.
+            My family&apos;s restaurant story began with Quattro Pazzi, Osianna Mediterranean Taverna and Post Road Diner. I spent my after-school hours in our restaurants. In 2016 I opened Organika in Southport with my aunt Kathy. After a stretch in plant-based foodservice with brands like Violife, I came back to open Pizza Lyfe in Westport in December 2022 — then Lyfe Cafe across the street, then Sweet Lyfe next door.
           </p>
           <p className="section-link">
             <Link className="text-link" href="/about">

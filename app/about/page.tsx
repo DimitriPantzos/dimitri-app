@@ -30,7 +30,7 @@ export default function AboutPage() {
           <p className="eyebrow">About</p>
           <h1 className="page-title">Dimitri Pantzos</h1>
           <p className="lede">
-            A Connecticut restaurateur who has been in kitchens since he was a kid.
+            I&apos;ve been in restaurant kitchens since I was a kid.
           </p>
         </header>
         <div className="about-portrait">
