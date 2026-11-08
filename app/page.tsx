@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, ArrowUpRight, Leaf, Menu, X } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight, Leaf, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -417,19 +417,13 @@ export default function Home() {
               <span className="text-[#0f9d63]">delicious.</span>
             </h2>
           </Reveal>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 gap-5">
             {[
               {
                 icon: Mail,
                 label: "Email",
                 value: "me@dimitri.app",
                 href: "mailto:me@dimitri.app",
-              },
-              {
-                icon: Phone,
-                label: "Phone",
-                value: "203-551-1003",
-                href: "tel:+12035511003",
               },
               {
                 icon: MapPin,
