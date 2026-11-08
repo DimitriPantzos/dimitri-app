@@ -24,55 +24,66 @@ export const contact = {
   place: "Norwalk, Connecticut",
 } as const;
 
-export type RestaurantPlace = {
-  label: string;
-  /** Not open. Render the words “Coming soon”. No address, date, or booking link. */
+export type DirectoryLocation = {
+  brand: string;
+  town: string;
   comingSoon?: boolean;
-};
-
-export type Restaurant = {
-  name: string;
-  descriptor: string;
-  places: RestaurantPlace[];
   href: string;
   logo: string;
+  /** Official brand account from that restaurant’s own site. Not a separate handle per town. */
+  instagram: string;
 };
 
-export const restaurants: Restaurant[] = [
+export const directory: DirectoryLocation[] = [
   {
-    name: "Pizza Lyfe",
-    descriptor: "Sourdough, whole-grain crust pizza.",
-    places: [{ label: "Westport" }, { label: "Milford" }],
+    brand: "Pizza Lyfe",
+    town: "Westport",
     href: "https://pizzalyfe.com",
     logo: "/logos/pizza-lyfe.png",
+    instagram: "https://instagram.com/_pizzalyfe_",
   },
   {
-    name: "Lyfe Cafe",
-    descriptor: "Strong cold brew, croissants and breakfast sandwiches.",
-    places: [{ label: "Westport" }, { label: "Fairfield", comingSoon: true }],
+    brand: "Pizza Lyfe",
+    town: "Milford",
+    href: "https://pizzalyfe.com",
+    logo: "/logos/pizza-lyfe.png",
+    instagram: "https://instagram.com/_pizzalyfe_",
+  },
+  {
+    brand: "Lyfe Cafe",
+    town: "Westport",
     href: "https://lyfe.cafe",
     logo: "/logos/lyfe-cafe.png",
+    instagram: "https://instagram.com/_lyfecafe_",
   },
   {
-    name: "Sweet Lyfe",
-    descriptor: "Greek-style frozen yogurt made in-house, plus a candy shop.",
-    places: [{ label: "Westport" }],
+    brand: "Lyfe Cafe",
+    town: "Fairfield",
+    comingSoon: true,
+    href: "https://lyfe.cafe",
+    logo: "/logos/lyfe-cafe.png",
+    instagram: "https://instagram.com/_lyfecafe_",
+  },
+  {
+    brand: "Sweet Lyfe",
+    town: "Westport",
     href: "https://sweetlyfe.app",
     logo: "/logos/sweet-lyfe.png",
+    instagram: "https://www.instagram.com/_sweetlyfe__/",
   },
   {
-    name: "Organika Kitchen",
-    descriptor: "The kitchen I opened in Southport in 2016.",
-    places: [{ label: "Southport" }],
+    brand: "Organika Kitchen",
+    town: "Southport",
     href: "https://organikact.com",
     logo: "/logos/organika.png",
+    instagram: "https://instagram.com/organikakitchen",
   },
   {
-    name: "Quattro Pazzi",
-    descriptor: "My family's Italian restaurant.",
-    places: [{ label: "Fairfield" }],
+    brand: "Quattro Pazzi",
+    town: "Fairfield",
     href: "https://quattropazzi.com",
     logo: "/logos/quattro-pazzi.png",
+    instagram: "https://instagram.com/quattropazzi",
   },
 ];
 

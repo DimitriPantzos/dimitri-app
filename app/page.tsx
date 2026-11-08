@@ -85,7 +85,7 @@ export default function Home() {
           <p className="eyebrow">Work</p>
           <h2 className="h2">The restaurants.</h2>
           <p className="body story-body">
-            Each one has its own kitchen, menu and site. Pick one to see hours and order.
+            Each name opens that restaurant’s site. Instagram is its official account.
           </p>
           <WorkIndex />
         </div>
