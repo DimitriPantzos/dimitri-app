@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
-    <div className="site min-h-screen text-[#0a1f16]">
+    <div className="site">
       <a className="skip-link" href="#content">
         Skip to content
       </a>

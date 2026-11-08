@@ -1,93 +1,73 @@
-# Lyfe Hospitality — dimitri.app
+# Dimitri Pantzos — Personal Site Design System (PROPOSED redesign, 2026-11-08)
 
-Visual language taken from the live site at https://dimitri.app on November 8, 2026 (Vercel project `dimitri-app`). About and Press extend this system. They do not introduce a second brand.
+> Status: **PROPOSED, not live.** Previous live-derived file preserved verbatim at `DESIGN.live-before-2026-11-08.md`.
+> Build brief: `/workspace/dimitri-personal-site/IMPLEMENTATION-BRIEF.md`. Nothing here authorizes merge, publish, DNS, or env changes.
+> Personal brand, not group redesign: **Dimitri Pantzos** is the subject; Lyfe Hospitality and the five restaurants are his work.
 
-## Visual Theme
+## 0. Evidence: CURRENT live vs NEW proposed
+| Item | CURRENT live (curl 2026-11-08 12:57 PM ET) | NEW proposed |
+|---|---|---|
+| Subject | `<title>Lyfe Hospitality \| Bringing Good Food to Lyfe</title>`; group hub | Personal site: "Dimitri Pantzos" |
+| CSS | `/_next/static/css/ef550cf2c4cfadca.css` (Tailwind v4) | Same stack; new tokens below |
+| Fonts | Sora 400–800 + Inter 400–600 (Google) | Keep **Sora** (display) + **Inter** (text) — continuity with live identity |
+| Canvas | `#f7faf5` mint-cream | `--paper #f6f1e7` warm tile cream (sampled from portrait wall/tile) |
+| Ink | `#0a1f16` | `--ink #14202e` navy-black (apron navy, darkened) |
+| Accent | emerald `#0f9d63`, forest `#06301f` | `--ochre #b8742a` (apron straps) for rules/marks only; `--ochre-text #8a5418` for small text; `--navy #23344d` for slab; emerald retired from personal site |
+| Nav | `#brands #about #leadership #contact` anchors | Routes `/`, `/about`, `/press`, `/#work`, `/#contact` |
+| Contact | `mailto:` (exact from live HTML), `tel:+12035511003`, "Norwalk, Connecticut" | Same values, unchanged |
+| Logos | `/logos/{pizza-lyfe,lyfe-cafe,organika,quattro-pazzi,sweet-lyfe}.png` | Same files, same destinations |
 
-Bright, grounded, and editorial. A paper-green page, near-black forest ink, and one confident green. The voice is a hospitality group, not a software template: large Sora headlines, short sentences, white cards, and a forest band when the page needs a pause. Identity is the word “Lyfe” plus a leaf in a green circle, or the initials DP on forest. No stock portrait, no publisher logos, no magazine scans.
+## 1. Visual Theme & Atmosphere
+A quiet magazine profile of a working restaurateur. One real photograph of him at Sweet Lyfe, his name set large, plain sentences about what he built, and his five restaurants as a tidy index. Warm cream page, navy ink, a single ochre thread. Feels like a printed feature page, not a startup landing page, not a restaurant menu.
+Not: SaaS gradients, glass, dashboards, stat counters ("05 / 100% / CT" removed), card grids everywhere, emoji, restaurant palettes copied (no pizza rosso, no Sweet Lyfe blue as a theme).
 
-## Color Palette
+## 2. Color (NEW proposed)
+| Token | Hex | Role | Contrast (WCAG 2.x, computed in Python 2026-11-08) |
+|---|---|---|---|
+| `--paper` | `#f6f1e7` | page | — |
+| `--paper-2` | `#ede5d6` | alt band, portrait mat | — |
+| `--ink` | `#14202e` | headings/body | 14.6:1 on paper |
+| `--ink-soft` | `#4a5563` | secondary text | 6.7:1 |
+| `--rule` | `#d9cfbd` | hairlines 1px | decorative |
+| `--navy` | `#23344d` | one full-bleed slab (contact) | paper on navy 11.2:1 |
+| `--ochre` | `#b8742a` | 2–3px rules, index numerals ≥24px, focus ring | 3.3:1 → never small text |
+| `--ochre-text` | `#8a5418` | eyebrows/links small | 5.5:1 |
+| `--on-navy-accent` | `#e2b06b` | eyebrow on navy | 6.4:1 |
+Links: `--ink` with 1px `--ochre` underline offset 4px; hover underline 2px. No blue UA links ever.
 
-| Role | Token | Hex | Use |
-| --- | --- | --- | --- |
-| Paper | `--background` | `#f7faf5` | Page background |
-| Ink | `--foreground` | `#0a1f16` | Headlines and body |
-| Forest | `--forest` | `#06301f` | Philosophy band, footer, monogram tile |
-| Mist | `--paper` | `#ffffff` | Cards and the stat band |
-| Display green | `--emerald` | `#0f9d63` | Oversized words only (the “lyfe.” in the hero, stat figures, “delicious.”) |
-| Action green | — | `#0a7d4d` | Buttons, small labels, links, leaf circle. White text on this green clears WCAG AA |
-| Bright leaf | `--emerald-bright` | `#16c47f` | Accents on forest (philosophy highlight, DP initials, footer hover) |
-| Focus lime | `--lime` | `#c8f169` | Focus ring only |
-| Forest text | — | `#eaf3ec` | Text on forest |
+## 3. Typography (NEW proposed, same families as live)
+| Role | Spec |
+|---|---|
+| Name H1 (home) | Sora 700, `clamp(2.75rem, 10.5vw, 6.5rem)`, line-height 0.98, tracking -0.03em, two lines "Dimitri / Pantzos". At 375: 39.4px→ floor 44px (2.75rem); "Pantzos" ≈ 7 glyphs ≈ 210px < 327px content width. No overflow, no hyphenation (`hyphens:none; overflow-wrap:normal`). |
+| Page H1 (about/press) | Sora 700, `clamp(2.25rem, 6vw, 4rem)`, lh 1.05 |
+| H2 | Sora 600, `clamp(1.625rem, 3.5vw, 2.5rem)`, lh 1.15 |
+| H3 / restaurant name | Sora 600, 1.25rem |
+| Lede | Inter 400, `clamp(1.125rem, 1.6vw, 1.375rem)`, lh 1.5, max 34ch |
+| Body | Inter 400, 1.0625rem (17px), lh 1.65, max 62ch |
+| Eyebrow | Inter 600, 0.75rem, uppercase, tracking 0.14em, `--ochre-text` |
+| Credit/meta | Inter 400, 0.875rem, `--ink-soft` |
+Weights loaded: Sora 600/700, Inter 400/600 only.
 
-Body copy on paper stays at least 75% ink. Do not set small text in `#0f9d63`; that green is for display sizes (about 24px and up). White button labels sit on `#0a7d4d` or `#0a1f16`, with hover toward forest.
+## 4. Components
+- **Header**: 64px, paper bg, bottom 1px `--rule` on scroll. Left wordmark "Dimitri Pantzos" Sora 600 18px. Right: About · Work · Press · Contact (Inter 600 15px). <768: "Menu" text button opens full-screen paper sheet, links Sora 600 32px, Esc/close returns focus.
+- **Portrait figure**: `<picture>` AVIF/WebP/JPEG, 0 radius, 1px `--rule` frame offset 12px bottom-right in `--paper-2` (desktop only). Caption "At Sweet Lyfe, Westport." meta style.
+- **Work index row** (not cards): grid `[numeral 48px][logo 64px][name+descriptor][place][→]`; 1px `--rule` between rows; whole row is the `<a>` to restaurant domain, `target` same tab, hover: background `--paper-2`, arrow shifts 4px. Numeral Sora 600 28px `--ochre`.
+- **Press item**: publication eyebrow, title H3 linked, byline+issue meta, 2–3 sentence original summary, "Read at {publisher} ↗" link (`rel="noopener"` new tab).
+- **Contact slab**: full-bleed `--navy`, paper text, three rows Email/Phone/Based; values Sora 600 clamp(1.25rem,2.5vw,1.75rem).
+- **Buttons**: only two: primary = ink fill, paper text, 48px tall, 0 radius, padding 0 24px; secondary = text link with ochre underline.
 
-## Typography
+## 5. Layout
+Container 1200px max, gutters 20px (<768), 32px (768–1199), 48px (≥1200). 12-col grid desktop. Section padding `clamp(64px, 10vw, 128px)` block. Asymmetric: text cols 1–6, portrait cols 7–12 on home hero; About uses portrait cols 1–5 sticky, text 7–12.
 
-- Display: Sora, weights 700–800, tight tracking (`-0.02em`). Hero uses `clamp` so lines do not overflow a phone.
-- Body: Inter, 400–600. Long copy is `text-lg` with `text-pretty` and a `max-w-3xl` measure.
-- Labels: 14px, bold, uppercase, wide tracking, action green.
-- Do not add a serif, a script, or a second display face.
+## 6. Depth
+Flat. No shadows except focus. Depth from paper vs paper-2 bands, the offset frame, and hairlines.
 
-## Components
+## 7. Do / Don't
+Do: real portrait large; plain sentences; credit sources understatedly; keep live contact values exact; keep logos & domains (sweetlyfe.app).
+Don't: invent awards, roles, dates, quotes; no family/child/health details; no stat counters; no `.reveal` opacity-0 content (content must paint without JS); no sweetlyfe.com; no Cafe Fairfield; no awards in this build; no invented beliefs; no hard-coded location counts; no publisher photos/scans.
 
-- Sticky header: paper at 85% with blur, hairline border, leaf + “Lyfe” wordmark, text links, black “Get in Touch” pill, circular menu button below `lg`.
-- Mobile menu: right-hand sheet, forest scrim, 18px links, Escape closes, focus moves into the sheet and returns to the button.
-- Primary pill: action green, white label, arrow when the action leaves the section. Minimum height 44px.
-- Secondary pill: 2px ink border, transparent fill, green border and label on hover.
-- Cards: white, 24px radius, 1px ink border at 10%, padding 32px. Hover lifts 6px and warms the border. Brand cards carry the real logo files in `/public/logos`.
-- Press cards: same card, no fake logo. Kicker “Magazine feature”, publication, issue, title, byline, one- or two-line summary, “Read feature” to the publisher.
-- Monogram: square forest tile, “DP” in bright leaf. This is the portrait. Do not invent a photo.
-- Stats: three columns, giant display-green figures, quiet uppercase labels.
-- Contact: three cards — mailto `me@dimitri.app`, tel `+1 203-551-1003`, location “Norwalk, Connecticut”. No form.
-- Footer: forest bar, wordmark, About / Press / Contact, copyright.
+## 8. Responsive
+375/430: text first (eyebrow, H1, lede, buttons), then portrait at `aspect-ratio:4/5; object-fit:cover` full width — never image-first, never max-height that changes ratio. Same rule on /about. 768: two columns 6/6, portrait 4:5. 1440: 6/6, portrait 4:5 sized by column width. 1920: container capped 1200, no horizontal overflow, paper bg full-bleed.
 
-## Layout
-
-- Content width `max-w-7xl` with `px-6`.
-- Vertical rhythm: `py-20` on the phone, `md:py-28` or `md:py-32` for major bands.
-- Homepage order: hero, stats, brands, philosophy (`#about`), leadership (`#leadership`), press (`#press`), contact (`#contact`).
-- About (`/about`) and Press (`/press`) use the same header and footer. Brands and Contact in the nav point back to `/#brands` and `/#contact`.
-- One `h1` per page. Sections step to `h2`, then `h3`.
-- Hash targets use `scroll-margin-top` so the sticky header does not cover them.
-
-## Depth
-
-Flat paper, then white cards one step up. Hover shadow is green-tinted and tight (`0 24px 48px -24px`). The forest band is a full-bleed color change, not a gradient or a photo overlay. Motion is limited to color, a small lift, and the arrow nudge. `.reveal` stays visible without JavaScript. Respect `prefers-reduced-motion`.
-
-## Do / Don't
-
-Do:
-
-- Reuse paper, forest, action green, Sora, and the existing logo files.
-- Keep public contact as mailto and tel.
-- Link press to the publisher. Name the publication, issue, byline, and a short original summary.
-- Say where the November/December 2026 feature sits in the issue (printed page 80; Issuu pages 82–83) because that link opens the whole magazine.
-- Keep training (`/training`) and the coloring book (`/coloring`, eveanna host) on their own layouts.
-
-Don't:
-
-- Restyle the site as a generic luxury template, dark-mode dashboard, or restaurant-theme fork.
-- Invent portraits, press logos, awards, locations, opening dates, head counts, or testimonials.
-- Reprint magazine pages, screenshots, or photography. Westport Lifestyle photos are credited to Bevy Rutledge and stay on that site.
-- Add a contact form, accounts, or new private contact details.
-- Embed Issuu, City Lifestyle, or other third-party players.
-- Use `#0f9d63` for small text or for white-on-green buttons.
-
-## Responsive
-
-- Phone reference: 390×844. Desktop reference: 1440×900.
-- Nav links collapse into the sheet below `lg` so five items never overflow the bar.
-- Press cards stack in one column, then sit side by side from `md`.
-- Buttons go full width on a phone when they are the only action in a card (`w-full sm:w-fit`).
-- No horizontal scroll. Headlines wrap with `text-balance` or an explicit line break already in the hero.
-- Focus is a forest outline plus a lime ring, visible on paper and on forest.
-
-## Agent Prompt Guide
-
-When editing dimitri.app, match this file and `app/globals.css` before inventing components. The public site is Lyfe Hospitality for Dimitrios Pantzos at https://dimitri.app. About and Press are the biography and the two verified features only:
-
-1. “The Sweet Lyfe,” Westport Lifestyle, October 2026, Sara Gaynes Levy — https://citylifestyle.com/articles/the-sweet-lyfe
-2. “Building a Better Lyfe,” Westport, Weston & Wilton (Westport Magazine), November/December 2026, Lily Caplan, issue published November 3, 2026 — https://issuu.com/mofflymedia/docs/westport_weston_wilton_-_november_december_2026
-
-Do not swap in the separate farmers-market chef item. Do not publish family health, home details, or a spouse or child. Keep production deploys and DNS out of routine content edits; preview on the existing Vercel project. After UI changes, check 390 and 1440, keyboard focus, heading order, the mailto and tel links, and both “Read feature” hrefs.
+## 9. Agent Prompt
+"Build a personal editorial site for Dimitri Pantzos: warm cream paper #f6f1e7, navy-black ink #14202e, one ochre #b8742a thread, Sora headlines + Inter text. Lead with his real Sweet Lyfe portrait, large but never pushing name/intro below the fold on a 375px phone. Restaurants are a hairline-ruled numbered index linking to their own sites, not cards. Press is two credited original summaries. No stats, no gradients, no glass, no invented facts."

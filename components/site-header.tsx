@@ -1,151 +1,138 @@
 "use client";
 
-import { Leaf, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { navLinks } from "@/lib/site";
+import { useEffect, useId, useRef, useState } from "react";
 
-function isCurrent(href: string, pathname: string) {
-  return href === pathname;
-}
+const links = [
+  { href: "/about", label: "About" },
+  { href: "/#work", label: "Work" },
+  { href: "/press", label: "Press" },
+  { href: "/#contact", label: "Contact" },
+];
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const wasOpen = useRef(false);
+  const menuId = useId();
 
   useEffect(() => {
-    setMenuOpen(false);
+    setOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (!menuOpen) {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!open) {
       if (wasOpen.current) {
-        menuButtonRef.current?.focus();
+        buttonRef.current?.focus();
         wasOpen.current = false;
       }
       return;
     }
 
     wasOpen.current = true;
-    firstLinkRef.current?.focus();
+    const dialog = dialogRef.current;
+    const button = buttonRef.current;
+    const nodes = [
+      button,
+      ...Array.from(dialog?.querySelectorAll<HTMLElement>("a, button") ?? []),
+    ].filter((node): node is HTMLElement => Boolean(node));
+    (nodes[1] ?? nodes[0])?.focus();
+
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (event.key !== "Tab" || nodes.length === 0) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKey);
-    const previousOverflow = document.body.style.overflow;
+    const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = previous;
     };
-  }, [menuOpen]);
+  }, [open]);
 
   return (
-    <>
-      <header className="sticky top-0 z-50 border-b border-[#0a1f16]/8 bg-[#f7faf5]/85 backdrop-blur-md">
-        <nav
-          className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-4"
-          aria-label="Primary"
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+      <div className="wrap header-bar">
+        <Link href="/" className="wordmark">
+          Dimitri Pantzos
+        </Link>
+        <nav className="nav-desktop" aria-label="Primary">
+          {links.map((link) => {
+            const current = link.href === pathname;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={current ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+        <button
+          ref={buttonRef}
+          type="button"
+          className="menu-button"
+          aria-expanded={open}
+          aria-controls={menuId}
+          onClick={() => setOpen((value) => !value)}
         >
-          <Link
-            href="/"
-            className="font-display text-lg font-extrabold tracking-tight flex items-center gap-2 shrink-0"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0a7d4d] text-white">
-              <Leaf size={15} aria-hidden="true" />
-            </span>
-            Lyfe
-          </Link>
-          <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => {
-              const current = isCurrent(link.href, pathname);
+          {open ? "Close" : "Menu"}
+        </button>
+      </div>
+      {open ? (
+        <div
+          ref={dialogRef}
+          id={menuId}
+          className="menu-sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+        >
+          <nav aria-label="Mobile">
+            {links.map((link) => {
+              const current = link.href === pathname;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   aria-current={current ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors ${
-                    current
-                      ? "text-[#0a7d4d]"
-                      : "text-[#0a1f16]/65 hover:text-[#0a7d4d]"
-                  }`}
+                  onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </Link>
               );
             })}
-          </div>
-          <div className="flex items-center gap-3">
-            <Link
-              href="/#contact"
-              className="rounded-full bg-[#0a1f16] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#0a7d4d] transition-colors"
-            >
-              Get in Touch
-            </Link>
-            <button
-              ref={menuButtonRef}
-              type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#0a1f16]/15 text-[#0a1f16] lg:hidden"
-              aria-expanded={menuOpen}
-              aria-controls="hub-menu"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen((open) => !open)}
-            >
-              {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {menuOpen ? (
-        <div className="lg:hidden">
-          <button
-            type="button"
-            className="fixed inset-0 z-40 bg-[#06301f]/40"
-            aria-label="Close menu"
-            onClick={() => setMenuOpen(false)}
-          />
-          <div
-            id="hub-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site menu"
-            className="fixed inset-y-0 right-0 z-40 flex w-[min(20rem,88vw)] flex-col bg-[#f7faf5] px-6 pt-24 pb-8 shadow-[-16px_0_48px_-24px_rgba(6,48,31,0.35)]"
-          >
-            <nav className="flex flex-col gap-1" aria-label="Mobile">
-              {navLinks.map((link, index) => {
-                const current = isCurrent(link.href, pathname);
-                return (
-                  <Link
-                    key={link.href}
-                    ref={index === 0 ? firstLinkRef : undefined}
-                    href={link.href}
-                    aria-current={current ? "page" : undefined}
-                    className={`rounded-2xl px-4 py-3 text-lg font-semibold hover:bg-[#0a7d4d]/10 hover:text-[#0a7d4d] ${
-                      current ? "text-[#0a7d4d]" : "text-[#0a1f16]"
-                    }`}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </nav>
-            <Link
-              href="/#contact"
-              className="mt-6 rounded-full bg-[#0a1f16] px-6 py-3 text-center text-sm font-semibold text-white hover:bg-[#0a7d4d]"
-              onClick={() => setMenuOpen(false)}
-            >
-              Get in Touch
-            </Link>
-          </div>
+          </nav>
         </div>
       ) : null}
-    </>
+    </header>
   );
 }
