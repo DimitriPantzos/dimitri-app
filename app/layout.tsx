@@ -19,8 +19,10 @@ export const metadata: Metadata = {
     "Sweet Lyfe",
     "health-forward dining",
     "Norwalk Connecticut restaurants",
+    "Dimitrios Pantzos",
+    "Dimitri Pantzos",
   ],
-  authors: [{ name: "Lyfe Hospitality" }],
+  authors: [{ name: "Dimitrios Pantzos" }, { name: "Lyfe Hospitality" }],
   alternates: {
     canonical: "https://dimitri.app",
   },
