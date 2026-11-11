@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/site-shell";
 import { aboutChapters } from "@/lib/content";
 
 const description =
-  "Dimitri Pantzos on growing up in family restaurants, opening Organika, and building Pizza Lyfe, Lyfe Cafe and Sweet Lyfe in Westport.";
+  "Dimitri Pantzos on the family restaurants that were his first kitchen, Organika, and Pizza Lyfe, Lyfe Cafe and Sweet Lyfe.";
 
 export const metadata: Metadata = {
   title: "About",

@@ -43,7 +43,7 @@ export default function Home() {
               <span>Pantzos</span>
             </h1>
             <p className="lede">
-              I grew up in my family&apos;s restaurants. Today I run Pizza Lyfe, Lyfe Cafe and Sweet Lyfe in Westport, and lead Lyfe Hospitality.
+              I run Pizza Lyfe, Lyfe Cafe, Sweet Lyfe and Organika across Westport, Milford and Southport, and lead Lyfe Hospitality.
             </p>
             <div className="hero-actions">
               <a className="btn" href="#work">
