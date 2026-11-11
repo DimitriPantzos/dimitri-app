@@ -16,8 +16,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const description =
-  "Dimitri Pantzos is a Connecticut restaurateur behind Pizza Lyfe, Lyfe Cafe, Sweet Lyfe, Organika and Quattro Pazzi. Story, restaurants, press and contact.";
+const description = "Dimitri Pantzos, restaurateur in Connecticut.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dimitri.app"),

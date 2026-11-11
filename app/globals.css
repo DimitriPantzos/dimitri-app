@@ -250,8 +250,8 @@ img { max-width: 100%; }
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .btn {
@@ -287,7 +287,8 @@ img { max-width: 100%; }
 
 .source-line { margin-top: 40px; max-width: 62ch; }
 
-.hero-grid, .about-grid { display: flex; flex-direction: column; gap: 36px; }
+.hero-grid { display: flex; flex-direction: column; gap: 24px; }
+.about-grid { display: flex; flex-direction: column; gap: 36px; }
 
 .portrait { margin: 0; }
 
@@ -480,10 +481,10 @@ a.contact-value { text-decoration-color: var(--on-navy-accent); text-decoration-
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 32px;
     align-items: center;
   }
-  .hero-actions { flex-direction: row; align-items: center; }
+  .hero-actions { flex-direction: row; align-items: center; margin-top: 22px; }
   .hero-actions .btn, .hero-actions .text-link { width: auto; }
 }
 

@@ -7,8 +7,7 @@ import { SiteShell } from "@/components/site-shell";
 import { WorkIndex } from "@/components/work-index";
 import { personJsonLd } from "@/lib/content";
 
-const description =
-  "Dimitri Pantzos is a Connecticut restaurateur behind Pizza Lyfe, Lyfe Cafe, Sweet Lyfe, Organika and Quattro Pazzi. Story, restaurants, press and contact.";
+const description = "Dimitri Pantzos, restaurateur in Connecticut.";
 
 export const metadata: Metadata = {
   title: {
@@ -42,9 +41,6 @@ export default function Home() {
               <span>Dimitri</span>
               <span>Pantzos</span>
             </h1>
-            <p className="lede">
-              I run Pizza Lyfe, Lyfe Cafe, Sweet Lyfe and Organika across Westport, Milford and Southport, and lead Lyfe Hospitality.
-            </p>
             <div className="hero-actions">
               <a className="btn" href="#work">
                 See the restaurants
